@@ -1,0 +1,10 @@
+{
+  "name": "nance-website",
+  "version": "1.0.0",
+  "description": "Personal brand website for Nance — overthinker, builder, dreamer",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
