@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery â Nance</title>
+  <meta name="description" content="Travel photos, moments, and visual proof that I sometimes leave my desk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Placeholder images using CSS gradients */
+    .gallery-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .gp-1 { background: linear-gradient(135deg, #0a1628, #1a3a5c, #2d6a4f); }
+    .gp-2 { background: linear-gradient(135deg, #1a0e2e, #2c1654, #5b3a8c); }
+    .gp-3 { background: linear-gradient(135deg, #2d1b00, #6b3e1c, #d4845a); }
+    .gp-4 { background: linear-gradient(135deg, #0d1b0e, #1a4731, #40916c); }
+    .gp-5 { background: linear-gradient(135deg, #0a0e27, #1a2a5c, #5b9bd5); }
+    .gp-6 { background: linear-gradient(135deg, #1b0e0e, #5c1a1a, #c44040); }
+    .gp-7 { background: linear-gradient(135deg, #0e1b1b, #1a4a4a, #40a0a0); }
+    .gp-8 { background: linear-gradient(135deg, #1b1b0e, #4a4a1a, #a0a040); }
+    .gp-9 { background: linear-gradient(135deg, #0a1628, #3a1a5c, #8b5bd5); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav nav--scrolled" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">nance<span>.</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="writing.html" class="nav__link">Writing</a></li>
+        <li><a href="projects.html" class="nav__link">Projects</a></li>
+        <li><a href="uses.html" class="nav__link">What I Use</a></li>
+        <li><a href="gallery.html" class="nav__link nav__link--active">Gallery</a></li>
+        <li><a href="help.html" class="nav__link">How Can I Help</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <header class="page-hero stars-bg">
+    <div class="container">
+      <h1 class="page-hero__title">Gallery</h1>
+      <p class="page-hero__subtitle">Visual proof that I sometimes leave my desk. Moments from travels, hikes, and that time I got lost in the most beautiful way possible.</p>
+    </div>
+  </header>
+
+  <!-- Gallery Note -->
+  <section class="section section--warm" style="padding-top: var(--space-md); padding-bottom: 0;">
+    <div class="container container--narrow" style="text-align: center;">
+      <p style="color: rgba(10,14,26,0.5); font-size: 0.9rem; font-style: italic;">
+        These are placeholder images â replace them with your actual travel photos! Each placeholder shows where a photo would go. Click any image to view it larger.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="section section--warm">
+    <div class="container">
+      <div class="gallery-grid">
+
+        <div class="gallery-grid__item gallery-grid__item--wide fade-in">
+          <div class="gallery-placeholder gp-1">ð</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Milky Way over Big Sur â the sky that made me believe in magic</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-4">ð²</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Redwood National Forest â feeling extremely small</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-3">ð¥</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Campfire at Joshua Tree â perfect conversations</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item gallery-grid__item--tall fade-in">
+          <div class="gallery-placeholder gp-5">ðï¸</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Ha Long Bay, Vietnam â where land meets legend</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-2">ð</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Santorini sunset â worth every clichÃ©</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-7">ð</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Big Island, Hawaii â where the earth is still being born</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item gallery-grid__item--wide fade-in">
+          <div class="gallery-placeholder gp-9">â¨</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Northern lights in Iceland â no filter, no words</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-8">ð¯</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Kyoto in autumn â nature showing off</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-6">ð¸</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Cherry blossoms in Seoul â brief but unforgettable</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-4">ð¦</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Nara, Japan â made a deer friend</span>
+          </div>
+        </div>
+
+        <div class="gallery-grid__item fade-in">
+          <div class="gallery-placeholder gp-1">ðï¸</div>
+          <div class="gallery-grid__overlay">
+            <span class="gallery-grid__caption">Sahara at dawn â silence has a sound</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Philosophy -->
+  <section class="section section--dark stars-bg campfire">
+    <div class="container container--narrow">
+      <div class="campfire__flame">ð¸</div>
+      <blockquote class="campfire__quote">
+        I take photos not because I'm good at it, but because some moments are too beautiful to trust to memory alone.
+      </blockquote>
+      <p class="campfire__author">â Me, probably at 2 AM</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">nance<span>.</span></div>
+          <p class="footer__tagline">Overthinker. Builder. Stargazer.</p>
+        </div>
+        <div class="footer__nav-group">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><a href="projects.html">Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-group">
+          <h4>More</h4>
+          <ul>
+            <li><a href="uses.html">What I Use</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="help.html">How Can I Help</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Nance. Built with curiosity and too much caffeine.</p>
+        <div class="footer__socials">
+          <a href="mailto:tuong.tran0117@gmail.com" class="footer__social-link">Email</a>
+          <a href="https://substack.com/@overthinkernance" class="footer__social-link">Substack</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
