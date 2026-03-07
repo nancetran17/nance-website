@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects â Nance</title>
+  <meta name="description" content="Things I've built, broken, rebuilt, and occasionally shipped.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav nav--scrolled" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">nance<span>.</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="writing.html" class="nav__link">Writing</a></li>
+        <li><a href="projects.html" class="nav__link nav__link--active">Projects</a></li>
+        <li><a href="uses.html" class="nav__link">What I Use</a></li>
+        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="help.html" class="nav__link">How Can I Help</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <header class="page-hero stars-bg">
+    <div class="container">
+      <h1 class="page-hero__title">Projects</h1>
+      <p class="page-hero__subtitle">Things I've built, broken, rebuilt, and occasionally shipped. Each one taught me something â mostly patience.</p>
+    </div>
+  </header>
+
+  <!-- Projects Grid -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="grid grid--2">
+
+        <div class="card fade-in" style="position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--forest), var(--star-blue));"></div>
+          <span class="card__tag">Web App</span>
+          <h3 class="card__title">MoodBoard AI</h3>
+          <p class="card__text">An AI-powered visual mood board generator. Describe a vibe in words, get a curated aesthetic board. Built because I was tired of Pinterest rabbit holes lasting four hours.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(10,14,26,0.4); margin-top: var(--space-sm);">React &middot; OpenAI &middot; Vercel</p>
+          <a href="#" class="card__link">View Live &rarr;</a>
+        </div>
+
+        <div class="card fade-in" style="position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--ember), var(--spark));"></div>
+          <span class="card__tag">Newsletter</span>
+          <h3 class="card__title">The Overthinking Chronicles</h3>
+          <p class="card__text">My Substack newsletter where I dissect ideas, argue with myself in public, and write the kind of essays that make you stare out the window for 20 minutes afterward.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(10,14,26,0.4); margin-top: var(--space-sm);">Substack &middot; Writing &middot; Philosophy</p>
+          <a href="https://substack.com/@overthinkernance" class="card__link">Read on Substack &rarr;</a>
+        </div>
+
+        <div class="card fade-in" style="position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--deep-blue), var(--sage));"></div>
+          <span class="card__tag">Open Source</span>
+          <h3 class="card__title">Celestial CSS</h3>
+          <p class="card__text">A lightweight, opinionated CSS framework inspired by night skies, forests, and the feeling of being small under something vast. Dark themes that actually feel like darkness.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(10,14,26,0.4); margin-top: var(--space-sm);">CSS &middot; Design System &middot; Open Source</p>
+          <a href="#" class="card__link">View on GitHub &rarr;</a>
+        </div>
+
+        <div class="card fade-in" style="position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--sage), var(--moss));"></div>
+          <span class="card__tag">Tool</span>
+          <h3 class="card__title">ReadStack</h3>
+          <p class="card__text">A reading tracker for the chronically curious. Tracks books, articles, papers â anything with words. Includes a "rabbit hole" mode for when one link leads to seventeen tabs.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(10,14,26,0.4); margin-top: var(--space-sm);">Next.js &middot; Supabase &middot; Tailwind</p>
+          <a href="#" class="card__link">View project &rarr;</a>
+        </div>
+
+        <div class="card fade-in" style="position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--flame), var(--ember));"></div>
+          <span class="card__tag">Community</span>
+          <h3 class="card__title">Late Night Thinkers Club</h3>
+          <p class="card__text">A virtual community for people who think too much after midnight. Weekly prompts, async conversations, and the comforting knowledge that you're not the only one awake.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(10,14,26,0.4); margin-top: var(--space-sm);">Discord &middot; Community &middot; Philosophy</p>
+          <a href="#" class="card__link">Join the club &rarr;</a>
+        </div>
+
+        <div class="card fade-in" style="position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--star-blue), var(--twilight));"></div>
+          <span class="card__tag">Experiment</span>
+          <h3 class="card__title">Daily Wonder Bot</h3>
+          <p class="card__text">A Telegram bot that sends you one interesting question every morning â "Why is the sky blue?" "What is consciousness?" â to start your day curious instead of anxious.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(10,14,26,0.4); margin-top: var(--space-sm);">Python &middot; Telegram API &middot; GPT</p>
+          <a href="#" class="card__link">Try it &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Projects -->
+  <section class="section section--dark stars-bg">
+    <div class="container container--narrow" style="text-align: center;">
+      <p class="section__label">What's Next</p>
+      <h2 style="margin-bottom: var(--space-sm);">Things I'm Cooking Up</h2>
+      <p class="section__description" style="margin-bottom: var(--space-md);">
+        My brain has more tabs open than my browser. Here's what's simmering on the back burner â some of these might ship, others might become writing material about "why I didn't ship."
+      </p>
+      <div class="grid grid--3" style="text-align: left;">
+        <div class="card card--dark fade-in" style="border-left: 3px solid var(--sage);">
+          <h4 class="card__title" style="font-size: 1.1rem;">Wanderlust Journal</h4>
+          <p class="card__text">A travel journaling app with maps, photos, and the ability to tag memories by emotion rather than location.</p>
+        </div>
+        <div class="card card--dark fade-in" style="border-left: 3px solid var(--star-blue);">
+          <h4 class="card__title" style="font-size: 1.1rem;">The Analog Hour</h4>
+          <p class="card__text">A podcast about disconnecting â interviews with people who do their best thinking offline.</p>
+        </div>
+        <div class="card card--dark fade-in" style="border-left: 3px solid var(--ember);">
+          <h4 class="card__title" style="font-size: 1.1rem;">Philosophy for Builders</h4>
+          <p class="card__text">A short book connecting ancient philosophical frameworks to modern product thinking and creative work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">nance<span>.</span></div>
+          <p class="footer__tagline">Overthinker. Builder. Stargazer.</p>
+        </div>
+        <div class="footer__nav-group">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><a href="projects.html">Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-group">
+          <h4>More</h4>
+          <ul>
+            <li><a href="uses.html">What I Use</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="help.html">How Can I Help</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Nance. Built with curiosity and too much caffeine.</p>
+        <div class="footer__socials">
+          <a href="mailto:tuong.tran0117@gmail.com" class="footer__social-link">Email</a>
+          <a href="https://substack.com/@overthinkernance" class="footer__social-link">Substack</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
