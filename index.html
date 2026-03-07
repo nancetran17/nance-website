@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nance — Overthinker, Builder, Dreamer</title>
+  <meta name="description" content="Personal website of Nance — writer, builder, and professional overthinker.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">nance<span>.</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+        <li><a href="writing.html" class="nav__link">Writing</a></li>
+        <li><a href="projects.html" class="nav__link">Projects</a></li>
+        <li><a href="uses.html" class="nav__link">What I Use</a></li>
+        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="help.html" class="nav__link">How Can I Help</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <header class="hero stars-bg">
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__greeting">// hello, world — I'm</p>
+        <h1 class="hero__title">Nance, a professional<br>overthinker &amp; <em>dreamer</em></h1>
+        <p class="hero__subtitle">I write about big ideas, build things that make me curious, and occasionally stare at the sky wondering if the stars overthink too. Currently <span class="hero__typing"></span><span class="hero__cursor" style="animation: blink 1s step-end infinite; border-right: 2px solid var(--sage); margin-left: 2px;">&nbsp;</span></p>
+        <div class="hero__cta-group">
+          <a href="writing.html" class="btn btn--primary">Read My Writing &rarr;</a>
+          <a href="help.html" class="btn btn--ghost">Work With Me</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <style>@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }</style>
+  <section class="section section--light">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">The Short Version</p>
+        <h2 class="section__title">Who is this person, anyway?</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card fade-in"><div class="card__emoji">🔭</div><h3 class="card__title">Relentlessly Curious</h3><p class="card__text">I'm the person who Googles "why do we yawn" at 2 AM and ends up reading about evolutionary biology for three hours. My brain has no off switch — I just lean into it.</p></div>
+        <div class="card fade-in"><div class="card__emoji">✍️</div><h3 class="card__title">Writer & Overthinker</h3><p class="card__text">I write on <a href="https://substack.com/@overthinkernance" style="color: var(--deep-blue); text-decoration: underline;">Substack</a> about the intersection of life, technology, philosophy, and whatever rabbit hole I fell into this week.</p></div>
+        <div class="card fade-in"><div class="card__emoji">🏕️</div><h3 class="card__title">Campfire Romantic</h3><p class="card__text">Give me a forest, a sky full of stars, and a conversation about whether free will exists — that's my idea of a perfect evening.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark stars-bg">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Latest Dispatches</p>
+        <h2 class="section__title">Recent Writing</h2>
+        <p class="section__description">Thoughts that wouldn't fit in my head, so I put them here instead.</p>
+      </div>
+      <div class="grid grid--2">
+        <div class="card card--dark fade-in"><span class="card__tag">Philosophy</span><h3 class="card__title">On the Art of Overthinking (And Why I Refuse to Stop)</h3><p class="card__text">Some people meditate. I marinate. Here's my defense of the examined — no, the over-examined — life.</p><a href="writing.html" class="card__link">Read more &rarr;</a></div>
+        <div class="card card--dark fade-in"><span class="card__tag">Technology</span><h3 class="card__title">Building in Public: What Nobody Tells You About Side Projects</h3><p class="card__text">Everyone romanticizes the "build in public" journey. Nobody talks about the 3 AM debugging sessions fueled by existential dread and instant noodles.</p><a href="writing.html" class="card__link">Read more &rarr;</a></div>
+        <div class="card card--dark fade-in"><span class="card__tag">Life</span><h3 class="card__title">Letters to My Future Self: On Being Bold When You're Terrified</h3><p class="card__text">A love letter to the version of me who hasn't been invented yet, and a reminder that courage is just fear with better PR.</p><a href="writing.html" class="card__link">Read more &rarr;</a></div>
+        <div class="card card--dark fade-in"><span class="card__tag">Culture</span><h3 class="card__title">Why I Think Everyone Should Read Poetry (Even If You Think You Hate It)</h3><p class="card__text">Poetry isn't about being pretentious. It's about saying the thing you felt but couldn't articulate, in fewer words than a tweet.</p><a href="writing.html" class="card__link">Read more &rarr;</a></div>
+      </div>
+      <div style="text-align: center; margin-top: var(--space-lg);"><a href="writing.html" class="btn btn--ghost">See All Writing &rarr;</a></div>
+    </div>
+  </section>
+  <section class="section section--warm">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Things I've Made</p>
+        <h2 class="section__title">Selected Projects</h2>
+        <p class="section__description">Some actually useful, some just for fun. All built with curiosity and caffeine.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card fade-in"><span class="card__tag">Web App</span><h3 class="card__title">MoodBoard AI</h3><p class="card__text">An AI-powered tool that generates visual mood boards from text descriptions.</p><a href="projects.html" class="card__link">View project &rarr;</a></div>
+        <div class="card fade-in"><span class="card__tag">Newsletter</span><h3 class="card__title">The Overthinking Chronicles</h3><p class="card__text">My Substack where I dissect ideas, argue with myself in public, and occasionally write something people actually enjoy reading.</p><a href="https://substack.com/@overthinkernance" class="card__link">Visit Substack &rarr;</a></div>
+        <div class="card fade-in"><span class="card__tag">Open Source</span><h3 class="card__title">Celestial CSS</h3><p class="card__text">A lightweight CSS library inspired by night skies and forests. Dark themes that actually feel like darkness, not just gray.</p><a href="projects.html" class="card__link">View project &rarr;</a></div>
+      </div>
+      <div style="text-align: center; margin-top: var(--space-lg);"><a href="projects.html" class="btn btn--primary">All Projects &rarr;</a></div>
+    </div>
+  </section>
+  <section class="section section--dark stars-bg campfire">
+    <div class="container">
+      <div class="campfire__flame">🔥</div>
+      <blockquote class="campfire__quote">"The purpose of life is to live it, to taste experience to the utmost, to reach out eagerly and without fear for newer and richer experience."</blockquote>
+      <p class="campfire__author">— Eleanor Roosevelt</p>
+    </div>
+  </section>
+  <section class="section section--light" style="text-align: center;">
+    <div class="container container--narrow">
+      <h2 style="margin-bottom: var(--space-sm);">Let's make something together</h2>
+      <p class="section__description" style="margin-bottom: var(--space-md);">Whether you need a strategic thinker, a writer, a builder, or just someone who'll ask "but why?" five times in a row — I'm your person.</p>
+      <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
+        <a href="help.html" class="btn btn--primary">See How I Can Help &rarr;</a>
+        <a href="mailto:tuong.tran0117@gmail.com" class="btn btn--ghost">Say Hello</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand"><div class="footer__logo">nance<span>.</span></div><p class="footer__tagline">Overthinker. Builder. Stargazer.</p></div>
+        <div class="footer__nav-group"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="writing.html">Writing</a></li><li><a href="projects.html">Projects</a></li></ul></div>
+        <div class="footer__nav-group"><h4>More</h4><ul><li><a href="uses.html">What I Use</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="help.html">How Can I Help</a></li></ul></div>
+        <div class="footer__nav-group"><h4>Elsewhere</h4><ul><li><a href="https://substack.com/@overthinkernance">Substack</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">GitHub</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Nance. Built with curiosity and too much caffeine.</p>
+        <div class="footer__socials"><a href="mailto:tuong.tran0117@gmail.com" class="footer__social-link">Email</a><a href="https://substack.com/@overthinkernance" class="footer__social-link">Substack</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
