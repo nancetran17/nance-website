@@ -3,50 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nance</title>
-  <meta name="description" content="Nance builds things for fun and to understand the world better. Funny thoughts here and there that can take us somewhere.">
+  <title>Book Review — Nance</title>
+  <meta name="description" content="Book reviews and reading notes from Nance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="page--home">
-  <nav class="nav" role="navigation" aria-label="Main navigation">
+<body>
+
+  <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">nance<span>.</span></a>
       <ul class="nav__links">
-        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+        <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="writing.html" class="nav__link">Writing</a></li>
-        <li><a href="book-review.html" class="nav__link">Book Review</a></li>
+        <li><a href="book-review.html" class="nav__link nav__link--active">Book Review</a></li>
         <li><a href="projects.html" class="nav__link">Projects</a></li>
         <li><a href="uses.html" class="nav__link">What I Use</a></li>
         <li><a href="gallery.html" class="nav__link">Gallery</a></li>
         <li><a href="help.html" class="nav__link">How Can I Help</a></li>
       </ul>
-      <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-  <header class="hero stars-bg">
+
+  <header class="page-hero stars-bg">
     <div class="container">
-      <div class="hero__content">
-        <p class="hero__greeting">// hello, world — I'm</p>
-        <h1 class="hero__title">Nance</h1>
-        <p class="hero__subtitle">I build things for fun and to understand the world better. I love plants 🪴 mountains ⛰️ space 🚀 robotics 🤖 science 🔬 and nature 🏞️ — building helps me appreciate them more. I write funny thoughts here and there that can take us somewhere. Currently <span class="hero__typing"></span><span class="hero__cursor" style="animation: blink 1s step-end infinite; border-right: 2px solid var(--sage); margin-left: 2px;">&nbsp;</span></p>
-        <div class="hero__cta-group">
-          <a href="writing.html" class="btn btn--primary">Read My Writing &rarr;</a>
-          <a href="help.html" class="btn btn--ghost">Work With Me</a>
-        </div>
-      </div>
+      <h1 class="page-hero__title">Book Review</h1>
+      <p class="page-hero__subtitle">Reviews and notes on what I'm reading.</p>
     </div>
   </header>
-  <style>@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }</style>
-  <section class="section section--dark stars-bg campfire home-quote" aria-label="A quote I live by">
+
+  <section class="section section--light">
     <div class="container container--narrow">
-      <div class="campfire__flame" aria-hidden="true">🔥</div>
-      <blockquote class="campfire__quote">"The purpose of life is to live it, to taste experience to the utmost, to reach out eagerly and without fear for newer and richer experience."</blockquote>
-      <p class="campfire__author">— Eleanor Roosevelt</p>
+      <p style="text-align: center; color: rgba(10,14,26,0.6);">More coming soon.</p>
     </div>
   </section>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
@@ -61,6 +57,7 @@
       </div>
     </div>
   </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>

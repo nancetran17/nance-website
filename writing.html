@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writing â Nance</title>
-  <meta name="description" content="Essays, thoughts, and dispatches from a professional overthinker.">
+  <title>Writing — Nance</title>
+  <meta name="description" content="Three series: Out There in Space, Rabbit Hole, and Physical AI. Essays and dispatches from Nance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,13 +12,13 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">nance<span>.</span></a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="writing.html" class="nav__link nav__link--active">Writing</a></li>
+        <li><a href="book-review.html" class="nav__link">Book Review</a></li>
         <li><a href="projects.html" class="nav__link">Projects</a></li>
         <li><a href="uses.html" class="nav__link">What I Use</a></li>
         <li><a href="gallery.html" class="nav__link">Gallery</a></li>
@@ -30,132 +30,95 @@
     </div>
   </nav>
 
-  <!-- Page Hero -->
   <header class="page-hero stars-bg">
     <div class="container">
       <h1 class="page-hero__title">Writing</h1>
-      <p class="page-hero__subtitle">Thoughts that wouldn't fit in my head. Essays on life, tech, philosophy, and the art of paying attention.</p>
+      <p class="page-hero__subtitle">Three series — philosophy, deep dives, and physical AI. Also on <a href="https://substack.com/@overthinkernance" style="color: var(--sage); text-decoration: underline;">Substack</a>.</p>
     </div>
   </header>
 
-  <!-- Writing List -->
-  <section class="section section--light">
+  <section class="section section--light writing-page">
     <div class="container container--narrow">
 
-      <div style="margin-bottom: var(--space-lg); text-align: center;">
-        <p style="color: rgba(10,14,26,0.6); font-size: 0.95rem;">
-          I also write on <a href="https://substack.com/@overthinkernance" style="color: var(--deep-blue); text-decoration: underline; font-weight: 600;">Substack</a> â subscribe there if you want these dispatches delivered to your inbox.
-        </p>
-      </div>
-
-      <div class="writing-list">
-
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Mar 2026</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">On the Art of Overthinking (And Why I Refuse to Stop)</h3>
-            <p class="writing-item__excerpt">Some people meditate. I marinate. Here's my defense of the examined â no, the over-examined â life, and why your "just don't think about it" advice is, respectfully, terrible.</p>
-            <div class="writing-item__tags">
-              <span class="tag">philosophy</span>
-              <span class="tag">personal</span>
-            </div>
+      <!-- Series 1: Out There in Space -->
+      <article class="writing-series writing-series--space fade-in" id="out-there-in-space">
+        <div class="writing-series__art" aria-hidden="true">
+          <div class="series-art series-art--space">
+            <div class="series-art__stars"></div>
+            <div class="series-art__glow"></div>
           </div>
-        </a>
-
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Feb 2026</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">Building in Public: What Nobody Tells You About Side Projects</h3>
-            <p class="writing-item__excerpt">Everyone romanticizes the "build in public" journey. Nobody talks about the 3 AM debugging sessions fueled by existential dread and instant noodles.</p>
-            <div class="writing-item__tags">
-              <span class="tag">tech</span>
-              <span class="tag">building</span>
-            </div>
+        </div>
+        <div class="writing-series__body">
+          <span class="writing-series__badge">Series 01</span>
+          <header class="writing-series__header">
+            <h2 class="writing-series__title"><a href="out-there-in-space.html" class="writing-series__link">Out There in Space</a></h2>
+            <p class="writing-series__desc">Philosophical thoughts on whatever catches my mind — they don't all have to align. Society and civilization, hot takes on startups and why they fail, or how to do anything from first principles.</p>
+          </header>
+          <div class="writing-series__meta">
+            <span class="writing-series__count">3 pieces</span>
+            <span class="writing-series__updated">Last updated Aug 24, 2025</span>
           </div>
-        </a>
+          <p class="writing-series__latest"><span class="writing-series__latest-label">Latest:</span> <a href="the-generational-company-playbook.html">The Generational Company Playbook, Part I</a></p>
+          <a href="out-there-in-space.html" class="btn btn--primary writing-series__cta">Read series →</a>
+        </div>
+      </article>
 
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Feb 2026</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">Letters to My Future Self: On Being Bold When You're Terrified</h3>
-            <p class="writing-item__excerpt">A love letter to the version of me who hasn't been invented yet, and a reminder that courage is just fear with better PR.</p>
-            <div class="writing-item__tags">
-              <span class="tag">personal</span>
-              <span class="tag">motivation</span>
-            </div>
+      <!-- Series 2: Rabbit Hole -->
+      <article class="writing-series writing-series--rabbit fade-in" id="rabbit-hole">
+        <div class="writing-series__art" aria-hidden="true">
+          <div class="series-art series-art--rabbit">
+            <div class="series-art__tunnel"></div>
+            <div class="series-art__ring series-art__ring--1"></div>
+            <div class="series-art__ring series-art__ring--2"></div>
+            <div class="series-art__ring series-art__ring--3"></div>
           </div>
-        </a>
+        </div>
+        <div class="writing-series__body">
+          <span class="writing-series__badge">Series 02</span>
+          <header class="writing-series__header">
+            <h2 class="writing-series__title"><a href="rabbit-hole.html" class="writing-series__link">Rabbit Hole</a></h2>
+            <p class="writing-series__desc">For any topic, I answer three questions: <strong>The story of something</strong> — how it became what it is; <strong>What it means now</strong> — its relevance to today; <strong>The future of something</strong> — my take on where it's headed.</p>
+          </header>
+          <div class="writing-series__meta">
+            <span class="writing-series__count">0 pieces</span>
+            <span class="writing-series__updated">Last updated —</span>
+          </div>
+          <a href="rabbit-hole.html" class="btn btn--primary writing-series__cta">Read series →</a>
+        </div>
+      </article>
 
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Jan 2026</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">Why I Think Everyone Should Read Poetry (Even If You Think You Hate It)</h3>
-            <p class="writing-item__excerpt">Poetry isn't about being pretentious. It's about saying the thing you felt but couldn't articulate, in fewer words than a tweet.</p>
-            <div class="writing-item__tags">
-              <span class="tag">culture</span>
-              <span class="tag">literature</span>
-            </div>
+      <!-- Series 3: Physical AI -->
+      <article class="writing-series writing-series--physical fade-in" id="physical-ai">
+        <div class="writing-series__art" aria-hidden="true">
+          <div class="series-art series-art--physical">
+            <div class="series-art__grid"></div>
+            <div class="series-art__pulse series-art__pulse--1"></div>
+            <div class="series-art__pulse series-art__pulse--2"></div>
           </div>
-        </a>
+        </div>
+        <div class="writing-series__body">
+          <span class="writing-series__badge">Series 03</span>
+          <header class="writing-series__header">
+            <h2 class="writing-series__title"><a href="physical-ai.html" class="writing-series__link">Physical AI: The World We Live</a></h2>
+            <p class="writing-series__desc">Writing on what's happening in physical AI — World Labs, robotics, humanoids, hardware, data centers, chips. I care most about health, space, and climate, so you'll see a lot of those; the series isn't limited to them.</p>
+          </header>
+          <div class="writing-series__meta">
+            <span class="writing-series__count">0 pieces</span>
+            <span class="writing-series__updated">Last updated —</span>
+          </div>
+          <a href="physical-ai.html" class="btn btn--primary writing-series__cta">Read series →</a>
+        </div>
+      </article>
 
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Jan 2026</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">The Campfire Theory of Friendship</h3>
-            <p class="writing-item__excerpt">Real friendships are like campfires â they need tending, they create warmth, and the best conversations happen when the flames are low and the stars are out.</p>
-            <div class="writing-item__tags">
-              <span class="tag">life</span>
-              <span class="tag">relationships</span>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Dec 2025</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">AI Won't Replace Your Curiosity (But It Might Make You Lazier)</h3>
-            <p class="writing-item__excerpt">A nuanced take on AI tools â not the "robots are coming for us" panic piece, but an honest look at what we risk losing when answers come too easily.</p>
-            <div class="writing-item__tags">
-              <span class="tag">tech</span>
-              <span class="tag">philosophy</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Dec 2025</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">On Solitude, Forests, and Learning to Be Still</h3>
-            <p class="writing-item__excerpt">I spent a weekend alone in the forest and discovered that silence isn't empty â it's full of all the things you've been too busy to hear.</p>
-            <div class="writing-item__tags">
-              <span class="tag">nature</span>
-              <span class="tag">personal</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="writing-item fade-in">
-          <div class="writing-item__date">Nov 2025</div>
-          <div class="writing-item__content">
-            <h3 class="writing-item__title">The Optimist's Manifesto: Finding Light When the Internet Is Dark</h3>
-            <p class="writing-item__excerpt">Optimism isn't naivety â it's a radical act. Here's why I choose to believe the world is getting better, despite the doomscrolling.</p>
-            <div class="writing-item__tags">
-              <span class="tag">philosophy</span>
-              <span class="tag">optimism</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
           <div class="footer__logo">nance<span>.</span></div>
-          <p class="footer__tagline">Overthinker. Builder. Stargazer.</p>
+          <p class="footer__tagline">Builder. Story Teller. Avid Coffee Drinker.</p>
         </div>
         <div class="footer__nav-group">
           <h4>Navigate</h4>
@@ -168,6 +131,7 @@
         <div class="footer__nav-group">
           <h4>More</h4>
           <ul>
+            <li><a href="book-review.html">Book Review</a></li>
             <li><a href="uses.html">What I Use</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="help.html">How Can I Help</a></li>

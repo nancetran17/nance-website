@@ -68,11 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroTyping = document.querySelector('.hero__typing');
   if (heroTyping) {
     const phrases = [
-      'overthinking everything.',
-      'writing about big ideas.',
-      'building cool things.',
-      'chasing starlight.',
-      'asking why, always.'
+      'building something new.',
+      'writing funny thoughts.',
+      'geeking out over space.',
+      'tinkering with robotics.',
+      'exploring mountains.',
+      'tending to my plants.',
+      'understanding the world better.'
     ];
     let phraseIndex = 0;
     let charIndex = 0;
