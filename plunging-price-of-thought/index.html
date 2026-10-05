@@ -59,7 +59,7 @@ body { background: var(--paper); color: var(--ink); font-family: var(--f-body); 
 .card a { color: inherit; text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .card a:hover { color: var(--red); }
 .card a:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
-.card ol { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+.card ol, .card ul { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
 .card figure { margin: 4px 0; border: 2px solid var(--rule); background: #fff; }
 .card figure img { display: block; width: 100%; height: auto; }
 .where { font: 600 11px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
@@ -101,6 +101,10 @@ h1 span { color: var(--red); }
 @keyframes flutter { to { transform: rotate(6deg) translateY(-6px); } }
 .bubbles { animation: bubbles 2.5s ease-in-out infinite; }
 @keyframes bubbles { 0% { transform: translateY(6px); opacity: .2; } 50% { opacity: 1; } 100% { transform: translateY(-12px); opacity: 0; } }
+.needle { animation: needle 5s ease-in-out infinite alternate; transform-box: view-box; }
+@keyframes needle { from { transform: rotate(-18deg); } to { transform: rotate(14deg); } }
+.wave { animation: wave 2.4s ease-in-out infinite alternate; }
+@keyframes wave { to { transform: translateX(8px); } }
 .twinkle { animation: blink 1.4s steps(2) infinite; }
 .pulseGlow { animation: glowp 2.4s ease-in-out infinite alternate; }
 @keyframes glowp { from { opacity: .55; } to { opacity: 1; } }
@@ -144,7 +148,7 @@ h1 span { color: var(--red); }
       <div class="kicker">Rabbit Hole #4</div>
       <h1>Leveraging the Plunging Price of <span>Thought</span></h1>
       <div class="byline">by Nancy Tran</div>
-      <p>This week's Deep Dive is something that's probably going to make my Vietnamese mother very happy - cheap, cheaper and cheapest. This week's rabbit hole is about how fast intelligence is getting cheaper.</p>
+      <p>This week’s Deep Dive is something that is probably going to make my Vietnamese mother very happy - and usually, there’s only one thing that makes her this happy: a good discount. When things get cheap, cheaper, and cheapest. Well, Mom, good news for us - this week’s rabbit hole is about how fast intelligence is getting cheaper and cheaper and cheaper.</p>
       <div class="hint"><i></i> Scroll to walk through the market</div>
     </div>
   </section>
@@ -154,24 +158,29 @@ h1 span { color: var(--red); }
       <div class="where">The build-out</div>
       <p>Epoch AI wrote a very interesting piece on this called <a href="https://epoch.ai/publications/the-plunging-price-of-thought" target="_blank" rel="noopener">“The Plunging Price of Thought”</a>. If there’s anything you need to take away from this article, let it be that AI is now officially the fastest growing infrastructure that we have observed in the contemporary evolution of mankind.</p>
       <figure><img src="/plunging-price-of-thought/img/chart-buildout.png" alt="Chart comparing data-center spending with historical US infrastructure spending" loading="lazy"></figure>
-      <p>In <a href="https://www.wsj.com/economy/the-ai-build-out-is-becoming-the-biggest-economic-bet-in-u-s-history-c60716dd" target="_blank" rel="noopener">an article written by Konrad Putzier and Justin Lahart</a> that was published in the WSJ most recently, it was highlighted that data-center spending is greater than that for the canals, railroads, and grid combined. If we zoom out, the investment we are putting into this AI build-out is making the investments made to fund other US infrastructure projects, such as the railroads and the highway system, look very minuscule.</p>
+      <p>In <a href="https://www.wsj.com/economy/the-ai-build-out-is-becoming-the-biggest-economic-bet-in-u-s-history-c60716dd" target="_blank" rel="noopener">an article written by Konrad Putzier and Justin Lahart</a> that was published in the WSJ most recently, it was highlighted that data-center spending is greater than that for the canals, railroads, and grid - COMBINED. Let that sink in for a second. What on earth are we doing, guys? We are really making an unprecedented amount of investment that the world hasn’t quite prepared itself for. So if we zoom out, the investment we are putting into this AI build-out is making the investments made to fund other US infrastructure projects look very minuscule.</p>
       <p>To be exact, the total investment in data centers and related AI infrastructure is <a href="https://www.brookings.edu/articles/financing-the-ai-buildout/" target="_blank" rel="noopener">projected to total $10.3 trillion from 2025 to 2032</a>.</p>
+    </div>
+  </section>
+
+  <section class="step" data-r="home" data-label="Mama Tran, real estate guru">
+    <div class="card">
+      <div class="where">Mama Tran, real estate guru</div>
+      <p>So with all of this investment in public infrastructure, what does this mean for the users?</p>
+      <p>This means that we are getting the (ever-improving) models for cheaper and cheaper (hopefully). Well, what does that mean? Why would Mama Tran be happy? Well, Mom - that means we will be getting an amazing level of intelligence for a lot cheaper. Mom, remember how you spent all that time explaining to me how real estate math works? Guess what, you don’t have to do that anymore. Hopefully, I can use these amazing models to keep an eye out for the right house investment for me. And voilà, I made it as a real estate guru. WOOHOO. No, not quite. But you get the point.</p>
     </div>
   </section>
 
   <section class="step" data-r="stairs" data-label="The price staircase">
     <div class="card">
       <div class="where">The price staircase</div>
-      <p>So with all of this investment in public infrastructure, what does this mean for the users?</p>
-      <p>This means that we are getting the models for cheaper (hopefully) - and what does that mean? It means that fast intelligence is getting cheaper itself.</p>
-      <p><a href="https://epoch.ai/publications/the-plunging-price-of-thought" target="_blank" rel="noopener">Epoch measured</a> that since 2023, the cost of a given level of performance has fallen about 47% every quarter (that’s roughly 14x per year).</p>
+      <p><a href="https://epoch.ai/publications/the-plunging-price-of-thought" target="_blank" rel="noopener">Epoch measured</a> that since 2023, the cost of a given level of performance has fallen about 47% every quarter (that’s roughly 14x per year). Here’s a concrete example to make this easier to understand.</p>
     </div>
   </section>
 
   <section class="step" data-r="stall" data-label="Best Chicken Auntie">
     <div class="card">
       <div class="where">Best Chicken Auntie</div>
-      <p>Here’s a concrete example to make this easier to understand.</p>
       <p>In January 2025, <a href="https://epoch.ai/publications/the-plunging-price-of-thought" target="_blank" rel="noopener">Epoch estimates</a> that OpenAI’s o3 cost roughly $0.30 per question to reach a particular level on GPQA Diamond, a difficult graduate-level science benchmark. Less than 18 months later, GPT-5.6 Luna achieves approximately the same performance for $0.0004 per question.</p>
       <p class="loud">That is a 725x decline.</p>
       <p>This is INSANE! Mom! That’s cheaper than your best chicken auntie dealer. I don’t think Asian Auntie would be able to pull that much of a discount for us.</p>
@@ -182,7 +191,7 @@ h1 span { color: var(--red); }
   <section class="step" data-r="legal" data-label="The legal AI tower">
     <div class="card">
       <div class="where">The legal AI tower</div>
-      <p>So why is it that all the AI startups are still spending an arm and a leg on their AI models? For example, <a href="https://finance.yahoo.com/technology/ai/articles/openai-anthropic-costs-push-more-160523322.html" target="_blank" rel="noopener">Harvey’s AI costs got so high that its gross margins plunged</a> from 50% at the start of the year to -50% by June (according to a person familiar with the matter) - now there might be some exaggeration behind this estimate, but regardless, that’s a significant shift. As a result, the legal tech startup responded by releasing its own model, built on top of cheaper open-weight AI.</p>
+      <p>Amazing! Doesn’t this mean that it should be cheaper and cheaper to run AI businesses? How come all the AI startups are still spending an arm and a leg on their AI models? For example, <a href="https://finance.yahoo.com/technology/ai/articles/openai-anthropic-costs-push-more-160523322.html" target="_blank" rel="noopener">Harvey’s AI costs got so high that its gross margins plunged</a> from 50% at the start of the year to -50% by June (according to a person familiar with the matter) - now there might be some exaggeration behind this estimate, but regardless, that’s a significant shift. As a result, the legal tech startup responded by releasing its own model, built on top of cheaper open-weight AI.</p>
       <p>So what’s happening here? It might be the case that for the initial period when we just release the model, that’s the time where you have to pay a premium for the model - but then a couple weeks later, a new model of comparable performance is released and you go back to paying a cheaper price for a much improved performance. HURRAY! Mama Tran is happy again.</p>
     </div>
   </section>
@@ -190,8 +199,8 @@ h1 span { color: var(--red); }
   <section class="step" data-r="stairsWide" data-label="The price staircase">
     <div class="card">
       <div class="where">Down the staircase</div>
-      <p>A lot of technology strategy implicitly treats intelligence as a scarce resource. You build workflows around expensive models. You reserve the smartest model for difficult cases. You worry about inference bills. You design systems around today’s cost structure.</p>
-      <p>But what happens if a capability that costs $100 today costs $8 next year, $0.60 the year after that, and pennies after that? What do you do then?</p>
+      <p>For a long time, a lot of technology strategy implicitly treated intelligence as a scarce resource. You build workflows around expensive models. You reserve the smartest model for difficult cases. You worry about inference bills. You design systems around today’s cost structure. I know this way too well because I used to be part of a team that designed optimal token-usage systems for our clients. There was a time when token-maxing was truly a big deal.</p>
+      <p>But what happens if a capability that costs $100 today costs $8 next year, $0.60 the year after that, and pennies after that? What do you do then? At this point, sure, token-maxing is important, but it’s not like it’s going to break the bank if you don’t.</p>
       <p>Intelligence is getting a lot cheaper. At that point you no longer really argue with each other about this architecture or that architecture. You just sit there and enjoy the plummeting price of intelligence. It becomes commoditized.</p>
     </div>
   </section>
@@ -199,14 +208,14 @@ h1 span { color: var(--red); }
   <section class="step" data-r="road" data-label="The road">
     <div class="card">
       <div class="where">The road</div>
-      <p>Translation - this means you stop asking “How can I optimize my tokens?” or “Is my AI budget enough to use?” - because it really doesn’t matter at this point in time anymore. Ladies and gents, AI is now just the roads you drive on. This infrastructure buys you the luxury of asking yourself the question “What would I build if intelligence were effectively free?”</p>
+      <p>Translation - this means you stop asking “How can I optimize my tokens?” or “Is my AI design better?” - because it really doesn’t matter anymore. Your AI design is great today but will probably be shit tomorrow - not because your product is shit but because intelligence just got cheaper and better once again. The thing that is called AI Harness, AI Prompting, AI whatever is disappearing into the ether. The margin you gain from having a “Better AI Design” than your next-door neighbor is minuscule. TINY. Negligible. NOTHING. It’s peanuts now. Truly tomayto, tomahto. Ladies and gents, AI is now just the roads you drive on. This infrastructure buys you the luxury of asking yourself the question “What would I build if intelligence were effectively free?”</p>
     </div>
   </section>
 
-  <section class="step" data-r="losers" data-label="The closed shop">
+  <section class="step" data-r="moat" data-label="The moat">
     <div class="card">
-      <div class="where">The empty wrapper</div>
-      <p>For starters - you should only be building things that capture high value. And for startups, it changes where durable value can live. If model capability commoditizes this quickly, simply wrapping today’s expensive intelligence is an assured losing strategy. At that point, you are just going to be waiting for the day that cheaper and smarter models take you out of the game. The more durable layers may be proprietary workflows, distribution, physical infrastructure, data generation, data capture, closed-loop learning or vertical integration.</p>
+      <div class="where">The moat</div>
+      <p>For starters - you should only be building things that capture high value. Because guys, guys, it’s hard enough to build shit as is. Why on earth would you want to build anything that doesn’t capture high value? Like it or not, you will be at that coworking space till 3AM pulling your hair out. Might as well pull your hair out solving a BIG ENOUGH PROBLEM, a DURABLE VALUE, or in this day and age, people call it a MOAT (what an overused term but sure, we will roll with it anyway). And for startups, it changes where durable value can live. If model capability commoditizes this quickly, simply wrapping today’s expensive intelligence is an assured losing strategy. All of those AI Harness Companies - I’m looking at you. Because at that point, you are just going to be waiting for the day that cheaper and smarter models take you out of the game. The more durable layers may be proprietary workflows, distribution, physical infrastructure, data generation, data capture, closed-loop learning or vertical integration - the plethora of things that won’t show up naturally just because our giga AI labs build more data centers (which we all know they will).</p>
     </div>
   </section>
 
@@ -222,20 +231,29 @@ h1 span { color: var(--red); }
   <section class="step" data-r="vault" data-label="The scarce stuff">
     <div class="card">
       <div class="where">The scarce stuff</div>
-      <p>I will leave you with a couple of questions:</p>
-      <p class="loud">What becomes abundant when intelligence becomes cheap?</p>
-      <p class="loud">And what becomes scarce instead?</p>
-      <p>If the same intelligence becomes 100x cheaper, which businesses become dramatically stronger, and which ones lose out?</p>
+      <p>Here are a couple of fun questions to tickle our brains:</p>
+      <ul>
+        <li>What becomes abundant when intelligence becomes cheap?</li>
+        <li>And what becomes scarce instead?</li>
+        <li>If the same intelligence becomes 100x cheaper, which businesses become dramatically stronger, and which ones lose out?</li>
+      </ul>
       <p>The top-of-mind thought is that the bottleneck moves toward things AI cannot cheaply manufacture - things like high-quality proprietary data, access to the physical world, experiments, patient interaction, regulatory permission, trusted distribution, hardware, energy and perhaps most importantly, the ability to tell whether an answer is actually correct.</p>
+    </div>
+  </section>
+
+  <section class="step" data-r="compass" data-label="The compass">
+    <div class="card">
+      <div class="where">The compass and the slop bin</div>
+      <p>That last point is interesting - the ability to tell whether an answer is actually correct. This is unironically hard. Why? Because there will be a point when we no longer know if the world we perceive is the world as it is or if we have been given a narrative generated by our beloved models, and therefore perceive the world as such. This is when it’s ever more important to develop things like common sense, an internal compass, or taste (or honestly, a combination of all three). These are ingredients in life that were once underrated but now, overnight, might have become the most precious things in humanity. I have a short personal story to tell on this one. I used to be able to detect AI slop or AI generated texts very easily - until one day I couldn’t anymore - not because I’m lazy or anything - it just completely slipped past my AI-dar. What a huge wake-up call that was. That was the alarm bell for me to stop consuming trashy AI-generated content on LinkedIn. Anyhow - I digress. So, where were we?</p>
+      <p class="loud">Ah, yes.</p>
     </div>
   </section>
 
   <section class="step" data-r="rail" data-label="The railroad">
     <div class="card">
       <div class="where">The railroad</div>
-      <p>In moments where it’s hard to predict what’s going to happen in the next couple of years, the best way to do it is to look at the past and learn what history suggests will happen.</p>
-      <p>The best analogous historical milestones that offer the same magnitude of an engineering feat would be the railroads and the telecom. These two eras suggest something counterintuitive:</p>
-      <p>When the price of a foundational capability collapses, the biggest long-term winners are often not the companies selling that capability (in our case, it’s intelligence; in their case, it’s railroads). They are the companies that reorganize the rest of the economy around what once was scarcity, but is now abundance.</p>
+      <p>So - in moments where it’s hard to predict what’s going to happen in the next couple of years, the best way to figure this out is to look at the past and learn what history suggests will happen. The most apt analogous historical milestones that offer the same magnitude of an engineering feat would be the railroads and the telecom. Interestingly, these two eras suggest something counterintuitive:</p>
+      <p>When the price of a foundational capability collapses, the biggest long-term winners are often not the companies selling that capability (in our case, it’s intelligence; in their case, it’s railroads or telecom). They are the companies that reorganize the rest of the economy around what once was scarcity, but is now abundance.</p>
     </div>
   </section>
 
@@ -249,16 +267,21 @@ h1 span { color: var(--red); }
   <section class="step" data-r="wires" data-label="The wires">
     <div class="card">
       <div class="where">The wires</div>
-      <p>In the telecom and internet era, we replace the cost of moving atoms with the cost of moving bits. And once again, the same thing happens: as communication becomes cheaper, usage explodes. There is a long historical pattern across mail, telegraph, and internet: quality improves, prices fall, usage increases.</p>
-      <p>Enormous amounts of money went into infrastructure - this includes fiber, long-distance networks, ISPs, telecom equipment. And again, owning the infrastructure wasn’t automatically the best business. Because when capacity increases, competition intensifies, and bandwidth becomes progressively less scarce. We can see the same thing happening in our world of models and intelligence.</p>
+      <p>In the telecom and internet era, we replace the cost of moving atoms with the cost of moving bits. And once again, the same thing happens: as communication becomes cheaper, usage explodes. There is a long historical pattern across mail, telegraph, and internet: quality improves, prices fall, usage increases. If you don’t know what I’m talking about - you should go watch <a href="https://en.wikipedia.org/wiki/You%27ve_Got_Mail" target="_blank" rel="noopener">You’ve Got Mail (1998)</a> or if you want a more modern take, then you can watch <a href="https://en.wikipedia.org/wiki/Past_Lives_%28film%29" target="_blank" rel="noopener">Past Lives (2023)</a>. Both great movies - for different reasons. But yes, they both have one thing in common, the characters in both GREATLY benefit from having much better communication pathways.</p>
+    </div>
+  </section>
+
+  <section class="step" data-r="fiber" data-label="The dark fiber">
+    <div class="card">
+      <div class="where">The dark fiber</div>
+      <p>For Meg Ryan and Tom Hanks to be writing each other emails non-stop, an enormous amount of money went into infrastructure - this includes fiber, long-distance networks, ISPs, telecom equipment. By this point, you would have thought that whoever owns the infrastructure must own the best businesses. No. No. No. Owning the infrastructure wasn’t automatically the best business. Because when capacity increases, competition intensifies, and bandwidth becomes progressively less scarce. And this isn’t just theory. By 2002, <a href="https://www.fdic.gov/bank/analytical/bank-trends/bt0205.pdf" target="_blank" rel="noopener">only about 2 to 5 percent of the fiber optic cable in the US was actually lit</a>, telecom companies made up <a href="https://www.fdic.gov/bank/analytical/bank-trends/bt0205.pdf" target="_blank" rel="noopener">more than a quarter of all US corporate bond defaults in 2001</a>, and as <a href="https://en.wikipedia.org/wiki/Dark_fibre" target="_blank" rel="noopener">the wholesale price of bandwidth collapsed</a>, names like Global Crossing and 360networks went bankrupt. We can see the same thing happening in our world of models and intelligence.</p>
     </div>
   </section>
 
   <section class="step" data-r="posters" data-label="The posters on the wire">
     <div class="card">
       <div class="where">The posters on the wire</div>
-      <p>During the telecom and internet era, cheap communication made other companies possible: Google, Amazon, Facebook, Netflix, Salesforce, Uber, Airbnb, Spotify, AWS itself.</p>
-      <p>These companies were not fundamentally selling connectivity; they were leveraging connectivity and assuming connectivity.</p>
+      <p>So who won, then? Who were the best businesses? During the telecom and internet era, cheap communication made other companies possible: Google, Amazon, Facebook, Netflix, Salesforce, Uber, Airbnb, Spotify, AWS itself. These companies were not fundamentally selling connectivity; they were leveraging connectivity and assuming connectivity.</p>
       <p>For example, Google assumes everyone can access information instantly. Netflix assumes video can travel over the internet cheaply enough to replace physical distribution. Uber leverages the fact that drivers and riders can continuously exchange location information. AWS leverages the fact that software and data can be remotely accessed. These companies leveraged what was now abundant to reimagine what workflows would look like. These business models would have looked absurd before cheap telecommunications.</p>
     </div>
   </section>
@@ -266,6 +289,7 @@ h1 span { color: var(--red); }
   <section class="step" data-r="losers" data-label="The closed shop">
     <div class="card">
       <div class="where">The closed shop</div>
+      <p>With that - let’s now go back to our discussion around what businesses to build in the age of AI, and talk about the winners and losers in this era of intelligence abundance.</p>
       <p>A recent <a href="https://www.aeaweb.org/articles?id=10.1257%2Fjep.20261506&amp;utm_source=chatgpt.com" target="_blank" rel="noopener">economics paper</a> analyzing the commercial inference market finds rapidly expanding model supply, frequent turnover among leading models, and roughly a thousandfold fall in the price of intelligence, with open models around 90% cheaper than comparable closed alternatives.</p>
       <p>This data alone gives us the first AI loser bucket - these are the companies whose moat is expensive intelligence. If a company’s primary value proposition was access to expensive cognition, I would be worried. For example, if we have value props such as basic research services, commodity legal work, routine accounting, translation, basic software development, generic content production, simple financial analysis, basic medical documentation, commodity consulting, customer support.</p>
       <p>The second bucket of AI losers would be some thin AI wrappers. The problem with this bucket is that everyone can reproduce the underlying capability. When intelligence gets cheaper, supply will quickly expand, and because the leadership among models turns over frequently, you will have no advantage getting access or “good deals” with certain model providers.</p>
@@ -276,16 +300,16 @@ h1 span { color: var(--red); }
     <div class="card">
       <div class="where">The broken bridge</div>
       <p>The third bucket that I have yet to have sufficient data or conviction on is the bucket of AI Infrastructure. Back in the railroad era, there was an incident where railroad overinvestment destroyed enormous amounts of capital and created pure Panic. The <a href="https://en.wikipedia.org/wiki/Panic_of_1873" target="_blank" rel="noopener">Panic of 1873</a> was closely connected to railroad overinvestment. When financing dried up, many railroad companies failed.</p>
-      <p>Now that was then, this is now. AI compute demand is exploding. Society does spend trillions building AI Infrastructure. However, it can also simultaneously be true that many AI Infrastructure investors will lose money - just like how railroads transformed America while railroad overinvestment destroyed enormous amounts of capital. The infrastructure can be civilization-changing and still be overbuilt. There is already a serious version of that question around today’s AI capex: <a href="https://www.ft.com/content/f83b44e9-406b-4004-9fdb-83357c3ac977?utm_source=chatgpt.com" target="_blank" rel="noopener">hyperscalers are spending extraordinary sums while the revenue required to justify attractive returns remains uncertain</a>.</p>
+      <p>Now that was then, this is now. AI compute demand is exploding. Society does spend trillions building AI Infrastructure. However, it can also simultaneously be true that the demand for AI Infrastructure is exploding while many AI Infrastructure investors will lose money - just like how railroads transformed America while railroad overinvestment destroyed enormous amounts of capital. The infrastructure can be civilization-changing and still be overbuilt. There is already a serious version of that question around today’s AI capex: <a href="https://www.ft.com/content/f83b44e9-406b-4004-9fdb-83357c3ac977?utm_source=chatgpt.com" target="_blank" rel="noopener">hyperscalers are spending extraordinary sums while the revenue required to justify attractive returns remains uncertain</a>. We pray for our fellow hyperscalers out there - may the chips be with you.</p>
     </div>
   </section>
 
   <section class="step" data-r="sears" data-label="The mail-order house">
     <div class="card">
       <div class="where">The mail-order house</div>
-      <p>So where do companies win? The winning bucket includes companies where intelligence is an input, not the product itself.</p>
-      <p>Sears is a great example. Sears wasn’t selling railroad transportation, it just consumed enormous amounts of it.</p>
-      <p>Sears was the new distribution model. Railroads were an input in Sears’ case. By the early twentieth century, millions of rural Americans were buying through mail-order systems; <a href="https://encyclopedia.chicagohistory.org/pages/779.html" target="_blank" rel="noopener">Sears had surpassed $100 million in annual mail-order sales by 1914</a>. The more “railroads” there were, the more sales.</p>
+      <p>Okay - all jokes aside. So where do companies win?</p>
+      <p>In my opinion, the winning bucket will include companies where intelligence is an input, not the product itself. Because if the input, “intelligence”, gets cheaper and better, and you have set up a system that turns this input into astronomically valuable output, you have put yourself in a very good position.</p>
+      <p>Sears is a great example. Sears wasn’t selling railroad transportation, it just consumed enormous amounts of it. Sears was the new distribution model. Railroads were an input in Sears’ case. By the early twentieth century, millions of rural Americans were buying through mail-order systems; <a href="https://encyclopedia.chicagohistory.org/pages/779.html" target="_blank" rel="noopener">Sears had surpassed $100 million in annual mail-order sales by 1914</a>. The more “railroads” there were, the more sales.</p>
     </div>
   </section>
 
@@ -295,7 +319,7 @@ h1 span { color: var(--red); }
       <p>Similarly, think about who will be consuming absurd amounts of intelligence.</p>
       <p>For example, a biotech company running 10k AI scientists, or a hospital system running 1M AI clinical workflows.</p>
       <p>A robotics company where every machine continuously performs perception, planning, simulation and verification.</p>
-      <p>These are the companies that benefit when intelligence gets cheaper, because their COGS will fall but their capabilities will improve and their market expands.</p>
+      <p>These are the companies that benefit when intelligence gets cheaper, because their COGS will fall while their capabilities improve, allowing them to take more shots, which means they can exhaust more options, which buys them the best chance at the ROI they want, which earns them trust, and which ultimately wins them meaningful, sticky market expansion.</p>
     </div>
   </section>
 
@@ -384,6 +408,13 @@ h1 span { color: var(--red); }
         <li>A proprietary data flywheel created through operation</li>
         <li>Some scarce complementary asset that doesn’t commoditize with intelligence</li>
       </ol>
+    </div>
+  </section>
+
+  <section class="step" data-r="ideas" data-label="Ideas are cheap">
+    <div class="card">
+      <div class="where">Ideas are cheap</div>
+      <p>Now, is this new news? Definitely not. This is definitely not new news. Didn’t Shane Parrish already say this some time ago? <a href="https://fs.blog/brain-food/october-31-2021/" target="_blank" rel="noopener">“Ideas are cheap. Execution is expensive.”</a> Same thing here, bestie. Same thing. In fact, guess what - Shane Parrish didn’t come up with that either. That sentence stemmed from another dude, Mr. Peter Drucker, who, way back when, had already said <a href="https://www.themarginalian.org/2011/03/18/scott-belsky-idea-plateaus/" target="_blank" rel="noopener"><em>“Ideas are cheap and abundant; what is of value is the effective placement of those ideas into situations that develop into action.”</em></a> Oh well, what a brilliant saying, Peter, because even in 2026, if you swap “ideas” with “intelligence” or “AI”, the sentence still makes sense and the implication still holds true.</p>
     </div>
   </section>
 
@@ -621,7 +652,7 @@ h1 span { color: var(--red); }
     wires += '<path class="pulse" d="' + catenary(x1 + 34, 110, x2 + 34, 110, 44) + '" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="6 46" fill="none" stroke-linecap="round"/>';
     // envelope rides the copper wire
     var e = onCurve(x1 - 34, 110, x2 - 34, 110, 26, 0.35);
-    riders += '<g transform="translate(' + e[0].toFixed(0) + ' ' + (e[1] + 4).toFixed(0) + ')"><rect x="-15" y="0" width="30" height="20" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="2"/><path d="M-15 0 L0 11 L15 0" stroke="' + C.ink + '" stroke-width="2" fill="none"/></g>';
+    riders += '<g transform="translate(' + e[0].toFixed(0) + ' ' + (e[1] + 4).toFixed(0) + ')"><rect x="-15" y="0" width="30" height="20" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="2"/><path d="M-15 0 L0 11 L15 0" stroke="' + C.ink + '" stroke-width="2" fill="none"/>' + (p % 2 ? '' : '<path d="M0 17 l-5 -5 a3 3 0 0 1 5 -4 a3 3 0 0 1 5 4 z" fill="' + C.red + '"/>') + '</g>';
     var m = onCurve(x1, 142, x2, 142, 34, 0.62);
     riders += mono(m[0].toFixed(0), (m[1] + 22).toFixed(0), '·−·· −−−', 15, C.ink, 'text-anchor="middle"');
   }
@@ -772,12 +803,14 @@ h1 span { color: var(--red); }
   // wrapper gift box
   lo += '<g transform="translate(1966 1214)"><rect x="0" y="16" width="80" height="60" fill="' + C.pink + '" stroke="' + C.ink + '" stroke-width="3"/><rect x="34" y="16" width="12" height="60" fill="' + C.lime + '" stroke="' + C.ink + '" stroke-width="2"/>';
   lo += '<g transform="rotate(-28 0 16)"><rect x="-4" y="2" width="88" height="16" fill="' + C.pink + '" stroke="' + C.ink + '" stroke-width="3"/></g>';
-  lo += '<path d="M8 22 H72" stroke="' + C.ink + '" stroke-width="2" opacity=".4"/>' + mono(40, 58, 'WRAPPER', 9, C.ink, 'text-anchor="middle"') + mono(40, 70, '(EMPTY)', 8, C.ink, 'text-anchor="middle"') + '</g>';
+  lo += '<path d="M8 22 H72" stroke="' + C.ink + '" stroke-width="2" opacity=".4"/>' + mono(40, 46, 'WRAPPER &', 8, C.ink, 'text-anchor="middle"') + mono(40, 58, 'AI HARNESS', 8, C.ink, 'text-anchor="middle"') + mono(40, 70, '(EMPTY)', 8, C.ink, 'text-anchor="middle"') + '</g>';
   a(lo);
   // scarce stuff warehouse
   var wh = '<rect x="2090" y="900" width="258" height="390" fill="' + C.mint + '" stroke="' + C.ink + '" stroke-width="3"/><path d="M2084 900 L2219 852 L2354 900 Z" fill="#5DAF8B" stroke="' + C.ink + '" stroke-width="3" stroke-linejoin="round"/>';
   wh += '<rect x="2112" y="914" width="214" height="40" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="2"/>' + txt(2219, 942, 'SCARCE STUFF', 19, C.ink, 'text-anchor="middle"');
   wh += '<circle cx="2219" cy="1032" r="58" fill="#C9CED6" stroke="' + C.ink + '" stroke-width="4"/><circle cx="2219" cy="1032" r="40" fill="none" stroke="' + C.ink + '" stroke-width="2"/><circle cx="2219" cy="1032" r="10" fill="' + C.ink + '"/>';
+  wh += txt(2219, 966, 'N', 13, C.ink, 'text-anchor="middle"') + txt(2219, 1110, 'S', 13, C.ink, 'text-anchor="middle"') + txt(2287, 1037, 'E', 13, C.ink, 'text-anchor="middle"') + txt(2151, 1037, 'W', 13, C.ink, 'text-anchor="middle"');
+  wh += '<path d="M2219 990 L2228 1032 L2219 1074 L2210 1032 Z" fill="' + C.red + '" stroke="' + C.ink + '" stroke-width="2" class="needle" style="transform-origin:2219px 1032px"/>';
   for (var vs = 0; vs < 6; vs++) { var va = vs * Math.PI / 3; wh += '<line x1="2219" y1="1032" x2="' + (2219 + Math.cos(va) * 34).toFixed(1) + '" y2="' + (1032 + Math.sin(va) * 34).toFixed(1) + '" stroke="' + C.ink + '" stroke-width="3"/>'; }
   var crates = [['DATA', 2104, 1170, C.mus], ['ENERGY', 2186, 1170, C.red], ['TRUST', 2268, 1170, C.cyan], ['PERMITS', 2120, 1110, C.lilac], ['CHIPS', 2206, 1110, C.lime], ['LAND', 2270, 1110, C.pink]];
   crates.forEach(function (q) {
@@ -803,6 +836,28 @@ h1 span { color: var(--red); }
   a(ho);
   // robot heading to work
   a('<g transform="translate(2420 1196)"><line x1="30" y1="0" x2="30" y2="-18" stroke="' + C.ink + '" stroke-width="3"/><circle cx="30" cy="-22" r="5" fill="' + C.red + '" class="blinkFast"/><rect x="8" y="0" width="44" height="34" rx="8" fill="#DDE3EA" stroke="' + C.ink + '" stroke-width="3"/><circle cx="22" cy="16" r="5" fill="' + C.cyan + '"/><circle cx="38" cy="16" r="5" fill="' + C.cyan + '"/><rect x="2" y="38" width="56" height="40" rx="6" fill="' + C.mus + '" stroke="' + C.ink + '" stroke-width="3"/><path d="M58 50 l18 -8 l6 8" stroke="' + C.ink + '" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="74" y="30" width="22" height="18" fill="#D9A574" stroke="' + C.ink + '" stroke-width="2"/><circle cx="16" cy="88" r="7" fill="' + C.ink + '"/><circle cx="44" cy="88" r="7" fill="' + C.ink + '"/></g>');
+
+
+  /* ---------- final-draft additions ---------- */
+  // Mama Tran's real-estate dream: a little house for sale
+  a('<g><path d="M4 1240 L32 1214 L60 1240 Z" fill="' + C.redD + '" stroke="' + C.ink + '" stroke-width="2.5" stroke-linejoin="round"/><rect x="10" y="1240" width="44" height="50" fill="' + C.peach + '" stroke="' + C.ink + '" stroke-width="2.5"/><rect x="26" y="1262" width="14" height="28" fill="' + C.vioD + '"/><rect x="14" y="1248" width="10" height="10" fill="#FFE07A" stroke="' + C.ink + '" stroke-width="1.5"/>' +
+    '<line x1="44" y1="1290" x2="44" y2="1178" stroke="' + C.ink + '" stroke-width="3"/><g transform="translate(14 1150) rotate(-4)"><rect x="0" y="0" width="58" height="30" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="2"/>' + mono(29, 13, 'FOR', 9, C.red, 'text-anchor="middle"') + mono(29, 25, 'SALE', 9, C.red, 'text-anchor="middle"') + '</g></g>');
+  // dark fibre: a bundle of cable, almost none of it lit
+  var df = '<g opacity=".95">';
+  for (var fb = 0; fb < 12; fb++) df += '<path d="' + catenary(1150, 300 + fb * 2, 1590, 300 + fb * 2, 70 + fb * 3) + '" stroke="' + (fb === 6 ? C.cyan : (fb % 2 ? '#3E3858' : '#55507A')) + '" stroke-width="' + (fb === 6 ? 3.5 : 2.4) + '" fill="none"/>';
+  df += '<path class="pulse" d="' + catenary(1150, 312, 1590, 312, 88) + '" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="6 46" fill="none" stroke-linecap="round"/>';
+  df += '<g transform="translate(1300 500) rotate(-3)"><rect x="0" y="0" width="150" height="44" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="3"/>' + txt(75, 22, 'DARK FIBER', 15, C.ink, 'text-anchor="middle"') + mono(75, 37, 'ONLY 2–5% LIT · 2002', 9, C.red, 'text-anchor="middle"') + '</g><line x1="1375" y1="466" x2="1375" y2="500" stroke="' + C.ink + '" stroke-width="2"/></g>';
+  a(df);
+  // a cable drum nobody wants, parked by the broken span
+  a('<g><circle cx="1556" cy="756" r="30" fill="' + C.brown + '" stroke="' + C.ink + '" stroke-width="3"/><circle cx="1556" cy="756" r="20" fill="#3E3858"/><circle cx="1556" cy="756" r="20" fill="none" stroke="#55507A" stroke-width="2" stroke-dasharray="4 3"/><circle cx="1556" cy="756" r="6" fill="' + C.cream + '" stroke="' + C.ink + '" stroke-width="2"/>' +
+    '<g transform="translate(1516 690) rotate(5)"><rect x="0" y="0" width="84" height="30" fill="' + C.mus + '" stroke="' + C.ink + '" stroke-width="2"/>' + mono(42, 12, 'BANDWIDTH', 8, C.ink, 'text-anchor="middle"') + mono(42, 24, 'GOING CHEAP', 8, C.red, 'text-anchor="middle"') + '</g></g>');
+  // the moat in front of the scarce stuff
+  a('<g><rect x="2086" y="1286" width="270" height="30" rx="12" fill="' + C.cyan + '" stroke="' + C.ink + '" stroke-width="2.5"/><path d="M2100 1300 q10 -6 20 0 t20 0 t20 0 M2190 1306 q10 -6 20 0 t20 0 t20 0 M2280 1298 q10 -6 20 0 t20 0" stroke="#E6FBFF" stroke-width="2" fill="none" class="wave"/>' +
+    '<rect x="2196" y="1284" width="46" height="10" fill="' + C.brown + '" stroke="' + C.ink + '" stroke-width="2"/><line x1="2330" y1="1290" x2="2330" y2="1250" stroke="' + C.ink + '" stroke-width="3"/><rect x="2306" y="1232" width="48" height="20" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="2"/>' + mono(2330, 1246, 'MOAT', 10, C.ink, 'text-anchor="middle"') + '</g>');
+  // a bin for the AI slop
+  a('<g transform="translate(1878 1236)"><path d="M0 8 H46 L41 54 H5 Z" fill="#9A90B4" stroke="' + C.ink + '" stroke-width="2.5"/><rect x="-3" y="2" width="52" height="8" rx="3" fill="#B4ABC9" stroke="' + C.ink + '" stroke-width="2"/><circle cx="12" cy="-2" r="7" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="1.5"/><circle cx="30" cy="-4" r="8" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="1.5"/><circle cx="22" cy="-8" r="6" fill="' + C.paper + '" stroke="' + C.ink + '" stroke-width="1.5"/>' + mono(23, 30, 'AI', 9, C.ink, 'text-anchor="middle"') + mono(23, 42, 'SLOP', 9, C.ink, 'text-anchor="middle"') + '</g>');
+  // Drucker's sign over the stalls
+  a('<g transform="translate(2112 446) rotate(2)"><line x1="20" y1="-30" x2="20" y2="0" stroke="' + C.ink + '" stroke-width="2"/><line x1="230" y1="-30" x2="230" y2="0" stroke="' + C.ink + '" stroke-width="2"/><rect x="0" y="0" width="250" height="52" fill="' + C.lime + '" stroke="' + C.ink + '" stroke-width="3"/>' + txt(125, 24, 'IDEAS ARE CHEAP', 17, C.ink, 'text-anchor="middle"') + mono(125, 42, 'EXECUTION IS EXPENSIVE', 11, C.redD, 'text-anchor="middle"') + '</g>');
 
   /* ---------- road traffic ---------- */
   function car(col, w, label) {
@@ -853,7 +908,12 @@ h1 span { color: var(--red); }
     flywheel: [1300, 870, 300, 430],
     stalls: [1820, 520, 570, 300],
     stallD: [2140, 520, 260, 300],
-    hospital: [2360, 300, 440, 1010]
+    hospital: [2360, 300, 440, 1010],
+    home: [0, 1000, 680, 320],
+    moat: [1840, 880, 540, 450],
+    compass: [1850, 900, 520, 420],
+    fiber: [1120, 260, 520, 560],
+    ideas: [1840, 400, 560, 420]
   };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cur = null, tgt = null, focus = null, ftgt = null, raf = 0;
