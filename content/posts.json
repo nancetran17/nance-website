@@ -1,0 +1,64 @@
+[
+  {
+    "slug": "plunging-price-of-thought",
+    "href": "plunging-price-of-thought",
+    "interactive": true,
+    "title": "Rabbit Hole #4: Leveraging the Plunging Price of Thought",
+    "subtitle": "Intelligence is getting cheaper by about 47% every quarter. A walk through one illustrated market town on what that means, who loses, who wins, and why my mom is thrilled.",
+    "date": "2026-10-05",
+    "tag": "Rabbit Hole",
+    "cover": "images/writing/plunging-price-of-thought-cover.png",
+    "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-4-leveraging-the-plunging"
+  },
+  {
+    "slug": "mosaic-manifesto",
+    "href": "mosaic-manifesto",
+    "interactive": true,
+    "title": "Perception Is All You Need",
+    "subtitle": "The Mosaic Intelligence Labs manifesto on why surgical autonomy has to start with perception, illustrated by me as one painted Tuscan valley where every paragraph has its own corner.",
+    "date": "2026-10-05",
+    "tag": "Physical AI",
+    "cover": "images/writing/mosaic-manifesto-cover.png"
+  },
+  {
+    "slug": "mosaic-story",
+    "href": "mosaic-story",
+    "interactive": true,
+    "title": "The Mosaic Story",
+    "subtitle": "Surgery spent 150 years becoming less invasive, and now surgeons steer a catheter through the body by a grey shadow. Written by Ileana Pirozzi and illustrated by me as one painted Italian landscape about why perception comes first.",
+    "date": "2026-10-04",
+    "tag": "Physical AI",
+    "cover": "images/writing/mosaic-story-cover.png"
+  },
+  {
+    "slug": "the-generational-company-playbook",
+    "body": "essays/the-generational-company-playbook.html",
+    "title": "The Generational Company Playbook, Part I: Problems that Move Civilizations for Generations",
+    "subtitle": "The Civilization Flourishment Index: A Framework to Guide us Forward",
+    "date": "2025-08-24",
+    "tag": "Essay",
+    "cover": "images/writing/the-generational-company-playbook-cover.png",
+    "substack": "https://overthinkerdiary.substack.com/p/the-generational-company-playbook"
+  },
+  {
+    "slug": "the-agi-revolution-so-what-do-we-do-now",
+    "body": "essays/the-agi-revolution-so-what-do-we-do-now.html",
+    "title": "The AGI Revolution: So… What Do We Do Now?",
+    "subtitle": "We've been here before — just never quite like this. No, really. What are people supposed to do?",
+    "date": "2025-08-17",
+    "tag": "Essay",
+    "cover": "images/writing/the-agi-revolution-cover.png",
+    "substack": "https://overthinkerdiary.substack.com/p/the-agi-revolution-so-what-do-we"
+  },
+  {
+    "slug": "diary-of-an-over-thinker",
+    "body": "essays/diary-of-an-over-thinker.html",
+    "title": "Diary of an Over-Thinker",
+    "subtitle": "I think too much, often to the point of getting lost. But if I'm already deep in thought, I might as well share them (in case they are useful).",
+    "date": "2025-07-20",
+    "tag": "Essay",
+    "cover": "images/writing/diary-of-an-over-thinker-cover.png",
+    "cover_alt": "Beach at sunrise with seagulls and golden light over the ocean",
+    "substack": "https://substack.com/home/post/p-148422982"
+  }
+]

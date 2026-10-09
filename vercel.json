@@ -5,9 +5,32 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/out-there-in-space",
+      "destination": "/writing",
+      "permanent": true
+    },
+    {
+      "source": "/rabbit-hole",
+      "destination": "/writing",
+      "permanent": true
+    },
+    {
+      "source": "/physical-ai",
+      "destination": "/writing",
+      "permanent": true
     }
   ]
 }
