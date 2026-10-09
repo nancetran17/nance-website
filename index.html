@@ -1,66 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nance</title>
-  <meta name="description" content="Nance builds things for fun and to understand the world better. Funny thoughts here and there that can take us somewhere.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nance</title>
+<meta name="description" content="Nance builds things for fun and to understand the world better. Funny thoughts here and there that can take us somewhere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: the photographed studio fills the screen at sunrise; each object in it opens a notebook-paper panel. Desktop walks the camera in; phones pan the room sideways. */
+:root {
+  --paper: #fdf6ea;
+  --dot: rgba(120, 88, 66, .13);
+  --ink: #2f2420;
+  --ink-soft: #76604f;
+  --ember: #b8542f;
+  --glow: #ffc77a;
+  --line: rgba(47, 36, 32, .13);
+  --note-1: #fbe7a1; --note-2: #f9cdb8; --note-3: #d9e7c4; --note-4: #f3d9e6; --note-5: #cfe1ea;
+  --f-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+html, body { height: 100%; }
+body { margin: 0; background: #2a1d17; color: var(--ink); font: 16px/1.6 var(--f-body); overflow: hidden; -webkit-font-smoothing: antialiased; }
+
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.scene {
+  position: absolute; left: 0; top: 0; transform-origin: 0 0;
+  transition: transform 1.2s cubic-bezier(.65, 0, .25, 1);
+}
+.scene img.room {
+  display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none;
+  filter: brightness(.42) saturate(.55) hue-rotate(-12deg);
+  animation: sunrise 3.4s cubic-bezier(.3, .1, .2, 1) .25s forwards;
+}
+@keyframes sunrise { to { filter: brightness(1) saturate(1) hue-rotate(0deg); } }
+.sun {
+  position: absolute; left: 1%; top: 14%; width: 26%; aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 214, 150, .55), rgba(255, 190, 110, .18) 45%, transparent 70%);
+  mix-blend-mode: screen; opacity: 0; animation: sunglow 4s ease 1s forwards, breathe 7s ease-in-out 5s infinite alternate;
+}
+@keyframes sunglow { to { opacity: 1; } }
+@keyframes breathe { from { transform: scale(1); } to { transform: scale(1.08); } }
+canvas.motes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
+
+/* hotspots */
+.hot { position: absolute; border: 0; padding: 0; background: transparent; cursor: pointer; border-radius: 14px; }
+.hot::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: 0; transition: opacity .45s ease;
+  background: radial-gradient(ellipse at center, rgba(255, 205, 130, .38), rgba(255, 205, 130, 0) 70%);
+  mix-blend-mode: screen;
+}
+.hot:hover::before, .hot:focus-visible::before { opacity: 1; }
+.hot:focus-visible { outline: 2px solid rgba(255, 220, 160, .9); outline-offset: 4px; }
+.spark {
+  position: absolute; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, -50%);
+  background: #fff3d6; box-shadow: 0 0 0 4px rgba(255, 214, 150, .35), 0 0 18px 6px rgba(255, 190, 110, .55);
+  animation: pulse 2.6s ease-in-out infinite; opacity: 0; transition: opacity .6s ease;
+}
+body.awake .spark { opacity: 1; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 4px rgba(255, 214, 150, .35), 0 0 18px 6px rgba(255, 190, 110, .5); } 50% { box-shadow: 0 0 0 9px rgba(255, 214, 150, .12), 0 0 26px 10px rgba(255, 190, 110, .35); } }
+.note {
+  position: absolute; left: var(--x); top: var(--y); white-space: nowrap;
+  font: 400 15px/1 var(--f-display); letter-spacing: .01em; color: var(--ink);
+  background: var(--note-1); padding: 9px 13px 10px; border-radius: 2px;
+  box-shadow: 0 8px 18px rgba(30, 15, 5, .35), inset 0 -8px 12px rgba(0, 0, 0, .03);
+  transform: translate(calc(-50% + var(--dx, 0px)), calc(-100% - 8px)) rotate(var(--r, -2deg));
+  opacity: 0; transition: opacity .3s ease, transform .3s ease; pointer-events: none;
+}
+.note em { font-style: italic; color: var(--ink-soft); }
+.hot:hover .note, .hot:focus-visible .note, body.hinting .note { opacity: 1; transform: translate(calc(-50% + var(--dx, 0px)), calc(-100% - 16px)) rotate(var(--r, -2deg)); }
+body.zoomed .note, body.zoomed .spark { opacity: 0 !important; }
+
+.scene img.next { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; filter: none; animation: none; pointer-events: none; }
+#hots { transition: opacity .5s ease; }
+body.travelling #hots, body.travelling .motes { opacity: 0; }
+.motes { transition: opacity .5s ease; }
+
+/* bottom bar */
+.bar {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  padding: 80px max(16px, 3vw) calc(max(16px, 2.6vh) + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(to top, rgba(28, 16, 10, .72), rgba(28, 16, 10, 0));
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+  color: #fbeedd; transition: opacity .6s ease; pointer-events: none;
+}
+.bar .go, .bar .rooms { pointer-events: auto; }
+body.zoomed .bar { opacity: 0; } body.zoomed .bar .go, body.zoomed .bar .rooms { pointer-events: none; }
+.who h1 { margin: 0; font: 300 clamp(40px, 5vw, 68px)/.95 var(--f-display); letter-spacing: -.02em; }
+.who h1 i { font-weight: 300; }
+.who p { margin: 8px 0 0; font: 400 15px/1.4 var(--f-body); color: rgba(251, 238, 221, .82); max-width: 40ch; }
+.rooms { display: flex; gap: 4px 14px; flex-wrap: wrap; margin-top: 14px; align-items: baseline; }
+.rooms button { background: none; border: 0; padding: 2px 0; cursor: pointer; color: rgba(251, 238, 221, .6); font: italic 300 17px var(--f-display); border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.rooms button[aria-current="true"] { color: #fbeedd; border-bottom-color: var(--glow); }
+.rooms button:hover, .rooms button:focus-visible { color: #fbeedd; outline: none; }
+.rooms span { color: rgba(251, 238, 221, .35); font: 300 14px var(--f-display); }
+.go { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.go button {
+  font: 500 13px var(--f-body); letter-spacing: .02em; color: #fbeedd; cursor: pointer;
+  background: rgba(255, 240, 220, .08); border: 1px solid rgba(255, 230, 200, .28); border-radius: 999px; padding: 7px 14px;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background .2s, color .2s;
+}
+.go button:hover, .go button:focus-visible { background: var(--paper); color: var(--ink); outline: none; }
+
+/* panel */
+.panel {
+  position: absolute; z-index: 4; top: 0; right: 0; height: 100%; width: min(480px, 100%);
+  background-color: var(--paper); background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px); background-size: 18px 18px;
+  box-shadow: -30px 0 70px rgba(20, 10, 5, .4);
+  transform: translateX(105%); transition: transform .85s cubic-bezier(.65, 0, .25, 1) .12s, width .5s ease;
+  overflow-y: auto; overscroll-behavior: contain;
+}
+.panel.wide { width: min(760px, 100%); }
+body.zoomed .panel { transform: none; }
+.close {
+  position: sticky; top: 16px; float: right; margin: 16px 16px 0 0; z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper);
+  color: var(--ink); font: 300 22px/1 var(--f-display); cursor: pointer;
+}
+.close:hover, .close:focus-visible { background: var(--ink); color: var(--paper); outline: none; }
+.inner { padding: 64px clamp(20px, 4vw, 44px) 64px; }
+section[data-k] { display: none; gap: 26px; }
+section[data-k].on { display: grid; }
+.eyebrow { margin: 0; font: italic 300 20px/1 var(--f-display); color: var(--ember); }
+.panel h2 { margin: -12px 0 0; font: 300 clamp(38px, 5vw, 52px)/1.02 var(--f-display); letter-spacing: -.02em; text-wrap: balance; }
+.panel h3 { margin: 0; font: 400 23px/1.2 var(--f-display); }
+.lede { margin: 0; color: var(--ink-soft); max-width: 58ch; }
+.panel a { color: var(--ember); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.date { font: 400 12px var(--f-mono); letter-spacing: .02em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+.series { display: grid; gap: 8px; padding-top: 22px; border-top: 1px solid var(--line); }
+.series > p { margin: 0 0 4px; color: var(--ink-soft); font-size: 15px; }
+.piece { display: grid; gap: 2px; padding: 10px 12px; margin: 0 -12px; border-radius: 8px; text-decoration: none !important; color: var(--ink) !important; transition: background .2s; }
+.piece:hover, .piece:focus-visible { background: rgba(255, 199, 122, .22); outline: none; }
+.piece b { font: 400 18px/1.3 var(--f-display); }
+
+.cards { display: grid; gap: 4px; }
+.card { display: grid; gap: 4px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none !important; color: var(--ink) !important; }
+.card:hover h3 { color: var(--ember); }
+.card p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+.photos { columns: 2 220px; column-gap: 14px; }
+.photo { break-inside: avoid; margin: 0 0 14px; background: #fff; padding: 8px 8px 10px; box-shadow: 0 6px 18px rgba(60, 30, 10, .12); cursor: zoom-in; border: 0; width: 100%; text-align: left; display: block; font: inherit; color: inherit; }
+.photo:nth-child(3n+1) { transform: rotate(-.6deg); } .photo:nth-child(3n+2) { transform: rotate(.5deg); }
+.photo img { display: block; width: 100%; height: auto; }
+.photo span { display: flex; justify-content: space-between; gap: 8px; padding-top: 8px; font: italic 300 15px/1.2 var(--f-display); }
+.photo:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+
+.notes { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px; padding: 6px 4px; }
+.sticky { padding: 16px 16px 20px; min-height: 150px; box-shadow: 0 10px 20px rgba(60, 30, 10, .14); display: grid; align-content: start; gap: 6px; }
+.sticky b { font: 400 19px/1.2 var(--f-display); }
+.sticky span, .sticky li { font-size: 14px; line-height: 1.45; color: #4d3d33; }
+.sticky ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 3px; }
+.sticky li::before { content: "– "; color: rgba(77, 61, 51, .5); }
+.sticky.wide { grid-column: span 2; }
+@media (max-width: 480px) { .sticky.wide { grid-column: auto; } }
+.sticky:nth-child(5n+1) { background: var(--note-1); transform: rotate(-1.6deg); }
+.sticky:nth-child(5n+2) { background: var(--note-2); transform: rotate(1.2deg); }
+.sticky:nth-child(5n+3) { background: var(--note-3); transform: rotate(-.6deg); }
+.sticky:nth-child(5n+4) { background: var(--note-4); transform: rotate(1.8deg); }
+.sticky:nth-child(5n+5) { background: var(--note-5); transform: rotate(-1.2deg); }
+
+.offer { margin: 0; padding: 0; list-style: none; display: grid; }
+.offer li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; }
+.offer li span:first-child { font: 400 19px/1.3 var(--f-display); }
+.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 10px; }
+.steps li::before { content: counter(s); font: italic 300 26px/1 var(--f-display); color: var(--ember); }
+.mail { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+.mail code { font: 400 15px var(--f-mono); user-select: all; word-break: break-all; }
+.mail button { margin-left: auto; font: 600 13px var(--f-body); border: 0; border-radius: 999px; padding: 8px 15px; background: var(--ink); color: var(--paper); cursor: pointer; }
+.mail button:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
+.links { display: flex; gap: 18px; flex-wrap: wrap; font-weight: 500; }
+blockquote { margin: 0; padding-left: 18px; border-left: 2px solid var(--glow); font: italic 300 21px/1.45 var(--f-display); }
+blockquote cite { display: block; margin-top: 8px; font: 400 12px var(--f-mono); color: var(--ink-soft); font-style: normal; }
+.aside { margin: 0; padding: 14px 16px; background: var(--note-1); font-size: 14px; color: #4d3d33; transform: rotate(-.5deg); box-shadow: 0 6px 14px rgba(60, 30, 10, .1); }
+
+/* lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 10; background: rgba(20, 12, 8, .92); display: grid; place-items: center; padding: 24px 16px; }
+.lightbox img { max-width: 100%; max-height: 82vh; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+.lightbox p { margin: 14px 0 0; color: #fbeedd; font: italic 300 18px var(--f-display); text-align: center; }
+.lightbox button { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .3); background: transparent; color: #fff; font-size: 22px; cursor: pointer; }
+
+/* phones: pan the room instead of zooming */
+@media (max-width: 700px) {
+  .stage { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .stage::-webkit-scrollbar { display: none; }
+  .panel, .panel.wide { top: auto; bottom: 0; width: 100%; height: 78%; border-radius: 18px 18px 0 0; transform: translateY(105%); box-shadow: 0 -20px 60px rgba(20, 10, 5, .45); }
+  .inner { padding-top: 52px; }
+  .bar { position: fixed; padding-top: 60px; }
+  .go { justify-content: flex-start; }
+  .who p { font-size: 14px; }
+  .pan { position: fixed; z-index: 3; top: calc(16px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); font: italic 300 15px var(--f-display); color: #fbeedd; background: rgba(28, 16, 10, .45); padding: 6px 14px; border-radius: 999px; backdrop-filter: blur(6px); transition: opacity .6s; pointer-events: none; }
+}
+@media (min-width: 701px) { .pan { display: none; } }
+body.panned .pan, body.zoomed .pan { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+</style>
 </head>
-<body class="page--home">
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo">nance<span>.</span></a>
-      <ul class="nav__links">
-        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
-        <li><a href="writing.html" class="nav__link">Writing</a></li>
-        <li><a href="book-review.html" class="nav__link">Book Review</a></li>
-        <li><a href="projects.html" class="nav__link">Projects</a></li>
-        <li><a href="uses.html" class="nav__link">What I Use</a></li>
-        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
-        <li><a href="help.html" class="nav__link">How Can I Help</a></li>
-      </ul>
-      <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
-    </div>
+<body>
+
+<div class="stage" id="stage">
+  <div class="scene" id="scene">
+    <img class="room" id="roomimg" src="images/studio/room_vn.jpg" alt="" width="2200" height="1228">
+    <img class="room next" id="nextimg" alt="" aria-hidden="true">
+    <div class="sun" id="sun"></div>
+    <canvas class="motes" id="motes"></canvas>
+    <div id="hots"></div>
+  </div>
+</div>
+
+<p class="pan" aria-hidden="true">swipe to look around the room</p>
+
+<div class="bar">
+  <div class="who">
+    <h1>Nance <i>Tran</i></h1>
+    <p>Builder, storyteller, avid coffee drinker. Come in, the sun's coming up.</p>
+    <nav class="rooms" id="rooms" aria-label="Rooms"></nav>
+  </div>
+  <nav class="go" aria-label="Sections">
+    <button type="button" data-go="shelf">Writing</button>
+    <button type="button" data-go="laptop">Projects</button>
+    <button type="button" data-go="window">Photos</button>
+    <button type="button" data-go="board">What I use</button>
+    <button type="button" data-go="chair">About</button>
+    <button type="button" data-go="cup">Work with me</button>
   </nav>
-  <header class="hero stars-bg">
-    <div class="container">
-      <div class="hero__content">
-        <p class="hero__greeting">// hello, world — I'm</p>
-        <h1 class="hero__title">Nance</h1>
-        <p class="hero__subtitle">I build things for fun and to understand the world better. I love plants 🪴 mountains ⛰️ space 🚀 robotics 🤖 science 🔬 and nature 🏞️ — building helps me appreciate them more. I write funny thoughts here and there that can take us somewhere. Currently <span class="hero__typing"></span><span class="hero__cursor" style="animation: blink 1s step-end infinite; border-right: 2px solid var(--sage); margin-left: 2px;">&nbsp;</span></p>
-        <div class="hero__cta-group">
-          <a href="writing.html" class="btn btn--primary">Read My Writing &rarr;</a>
-          <a href="help.html" class="btn btn--ghost">Work With Me</a>
-        </div>
+</div>
+
+<aside class="panel" id="panel" aria-live="polite">
+  <button class="close" id="close" type="button" aria-label="Back to the room">×</button>
+  <div class="inner">
+
+    <section data-k="shelf">
+      <p class="eyebrow">from the bookshelf</p>
+      <h2>Writing</h2>
+      <p class="lede">Three series, one per shelf. Also on <a href="https://substack.com/@overthinkernance" target="_blank" rel="noopener">Substack</a>.</p>
+      <div class="series">
+        <h3>Out There in Space</h3>
+        <p>Philosophical thoughts on whatever catches my mind: civilization, why startups fail, how to do anything from first principles.</p>
+        <a class="piece" href="/the-generational-company-playbook.html" target="_blank" rel="noopener"><b>The Generational Company Playbook, Part I</b><span class="date">24 Aug 2025</span></a>
+        <a class="piece" href="/the-agi-revolution-so-what-do-we-do-now.html" target="_blank" rel="noopener"><b>The AGI Revolution: So… What Do We Do Now?</b><span class="date">17 Aug 2025</span></a>
+        <a class="piece" href="/diary-of-an-over-thinker.html" target="_blank" rel="noopener"><b>Diary of an Over-Thinker</b><span class="date">20 Jul 2025</span></a>
       </div>
-    </div>
-  </header>
-  <style>@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }</style>
-  <section class="section section--dark stars-bg campfire home-quote" aria-label="A quote I live by">
-    <div class="container container--narrow">
-      <div class="campfire__flame" aria-hidden="true">🔥</div>
-      <blockquote class="campfire__quote">"The purpose of life is to live it, to taste experience to the utmost, to reach out eagerly and without fear for newer and richer experience."</blockquote>
-      <p class="campfire__author">— Eleanor Roosevelt</p>
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand"><div class="footer__logo">nance<span>.</span></div><p class="footer__tagline">Builder. Story Teller. Avid Coffee Drinker.</p></div>
-        <div class="footer__nav-group"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="writing.html">Writing</a></li><li><a href="projects.html">Projects</a></li></ul></div>
-        <div class="footer__nav-group"><h4>More</h4><ul><li><a href="book-review.html">Book Review</a></li><li><a href="uses.html">What I Use</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="help.html">How Can I Help</a></li></ul></div>
-        <div class="footer__nav-group"><h4>Elsewhere</h4><ul><li><a href="https://substack.com/@overthinkernance">Substack</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">GitHub</a></li></ul></div>
+      <div class="series">
+        <h3>Rabbit Hole</h3>
+        <p>The story of something, what it means now, and where it's headed.</p>
+        <a class="piece" href="/plunging-price-of-thought/" target="_blank" rel="noopener"><b>#4 · Leveraging the Plunging Price of Thought</b><span class="date">5 Oct 2026</span></a>
       </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 Nance.</p>
-        <div class="footer__socials"><a href="mailto:tuong.tran0117@gmail.com" class="footer__social-link">Email</a><a href="https://substack.com/@overthinkernance" class="footer__social-link">Substack</a></div>
+      <div class="series">
+        <h3>Physical AI: The World We Live</h3>
+        <p>Robotics, humanoids, chips and data centers, mostly through health, space and climate.</p>
+        <a class="piece" href="/mosaic-manifesto/" target="_blank" rel="noopener"><b>Perception Is All You Need</b><span class="date">5 Oct 2026</span></a>
+        <a class="piece" href="/mosaic-story/" target="_blank" rel="noopener"><b>The Mosaic Story</b><span class="date">5 Oct 2026</span></a>
       </div>
-    </div>
-  </footer>
-  <script src="js/main.js"></script>
+    </section>
+
+    <section data-k="laptop">
+      <p class="eyebrow">open on the laptop</p>
+      <h2>Projects</h2>
+      <p class="lede">Things I build to understand the world a little better.</p>
+      <div class="cards">
+        <a class="card" href="/plunging-price-of-thought/" target="_blank" rel="noopener"><span class="date">Illustrated essay · 2026</span><h3>The Plunging Price of Thought</h3><p>An essay you walk through as one illustrated market town.</p></a>
+        <a class="card" href="/mosaic-manifesto/" target="_blank" rel="noopener"><span class="date">Illustrated manifesto · 2026</span><h3>Perception Is All You Need</h3><p>One painted Tuscan valley where every paragraph has its own corner.</p></a>
+        <a class="card" href="/mosaic-story/" target="_blank" rel="noopener"><span class="date">Illustrated story · 2026</span><h3>The Mosaic Story</h3><p>Why perception comes first in surgery, told across an Italian landscape.</p></a>
+      </div>
+      <p class="aside">Prototype note: more projects go here once you tell me which are current.</p>
+    </section>
+
+    <section data-k="window">
+      <p class="eyebrow">out the window</p>
+      <h2>Things I stopped to look at</h2>
+      <p class="lede">Some moments are too beautiful to trust to memory alone.</p>
+      <div class="photos" id="photos"></div>
+    </section>
+
+    <section data-k="board">
+      <p class="eyebrow">pinned to the board</p>
+      <h2>What I use &amp; love</h2>
+      <p class="lede">The tools, habits and stories keeping me going lately.</p>
+      <div class="notes">
+        <div class="sticky"><b>Tech stack</b><ul><li>Notion</li><li>Granola</li><li>Instinct</li><li>Superhuman</li><li>Wispr Flow</li><li>Copilot Money</li><li>Claude</li><li>Cursor</li><li>Codex</li></ul></div>
+        <div class="sticky"><b>Machine</b><span>MacBook Pro (M5)</span></div>
+        <div class="sticky"><b>Best fun investment this month</b><span>Nuuly</span></div>
+        <div class="sticky wide"><b>Best habits, recently formed</b><ul>
+          <li>Run at least twice a week</li><li>Swim once a week</li><li>Take probiotics, consistently</li>
+          <li>Keep a running tab of beautiful images &amp; websites</li><li>Call Mom on my way to or from work</li>
+          <li>Keep at least one outside-of-work project going</li><li>Drag myself to Golden Gate Park at least once a week</li>
+          <li>One-on-one coffees with interesting people</li></ul></div>
+        <div class="sticky"><b>Best habit over the years</b><span>Homemade sushi date night, every Friday</span></div>
+        <div class="sticky"><b>Watching</b><ul><li>Silo</li><li>Ted Lasso, of course</li></ul></div>
+        <div class="sticky"><b>Reading</b><ul><li>Chip War</li><li>Project Hail Mary</li></ul></div>
+      </div>
+    </section>
+
+    <section data-k="chair">
+      <p class="eyebrow">pull up a chair</p>
+      <h2>Hi, I'm Nance.</h2>
+      <p class="lede">I build things for fun and to understand the world better. I love plants, mountains, space, robotics, science and nature, and building helps me appreciate them more. I write to think, mostly about where civilization is headed and why I'm hopeful about it.</p>
+      <blockquote>The purpose of life, after all, is to live it, to taste experience to the utmost, to reach out eagerly and without fear for newer and richer experience.<cite>Eleanor Roosevelt</cite></blockquote>
+    </section>
+
+    <section data-k="cup">
+      <p class="eyebrow">over coffee</p>
+      <h2>Work with me</h2>
+      <p class="lede">I help people think clearer, write better, and build things that matter.</p>
+      <ul class="offer">
+        <li><span>Writing &amp; content strategy</span></li>
+        <li><span>Strategic thinking sessions</span></li>
+        <li><span>Product &amp; idea consulting</span></li>
+        <li><span>Personal brand building</span></li>
+        <li><span>Newsletter launch &amp; growth</span></li>
+        <li><span>Research deep dives</span></li>
+      </ul>
+      <ol class="steps">
+        <li><span><b>Say hello.</b> Email me what you're working on.</span></li>
+        <li><span><b>Discovery call.</b> A free 20 minutes to see if we fit.</span></li>
+        <li><span><b>Let's build.</b> Drafts and updates the whole way through.</span></li>
+      </ol>
+      <div class="mail"><code id="addr">tuong.tran0117@gmail.com</code><button type="button" id="copy">Copy</button></div>
+      <div class="links"><a href="https://substack.com/@overthinkernance" target="_blank" rel="noopener">Substack</a><a href="https://github.com/nancetran17" target="_blank" rel="noopener">GitHub</a></div>
+    </section>
+
+  </div>
+</aside>
+
+<script>
+(function () {
+  const PHOTOS = [
+    ['img_0535', 'A field of daisies', 'Jul 2022'], ['img_0403', 'A bookshop reading corner', 'Jun 2022'],
+    ['img_0983', 'Storm light over the city', 'Aug 2022'], ['img_0914', 'River at blue hour', 'Jul 2022'],
+    ['img_2207', 'Afternoon in the park', 'Jul 2023'], ['img_9732', 'Clematis by a brick wall', 'May 2022'],
+    ['img_3559', 'The city in autumn', 'Nov 2021'], ['img_6627', 'Driftwood and open water', 'May 2022'],
+    ['img_8109', 'Boats through the trees', 'May 2023'], ['img_2456', 'Brick and bare branches', 'Dec 2022'],
+    ['img_9139', 'A wall of small drawings', 'May 2023'], ['img_0378', 'A market under string lights', 'Jun 2022'],
+    ['img_8056', 'Looking up through the leaves', 'May 2023'], ['img_9584', 'Coffee on the corner', 'May 2022'],
+    ['img_0536', 'Daisies, up close', 'Jul 2022']
+  ];
+  const grid = document.getElementById('photos');
+  PHOTOS.forEach(([f, cap, d]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'photo';
+    b.innerHTML = `<img src="images/studio/thumb_${f}.jpg" alt="${cap}" loading="lazy"><span>${cap}<span class="date">${d}</span></span>`;
+    b.addEventListener('click', () => lightbox(f, cap, d));
+    grid.appendChild(b);
+  });
+  function lightbox(f, cap, d) {
+    const lb = document.createElement('div'); lb.className = 'lightbox'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-label', cap);
+    lb.innerHTML = `<div><img src="images/studio/${f}.jpg" alt="${cap}"><p>${cap} · ${d}</p></div><button type="button" aria-label="Close photo">×</button>`;
+    const shut = () => { lb.remove(); document.removeEventListener('keydown', esc, true); };
+    const esc = e => { if (e.key === 'Escape') { e.stopPropagation(); shut(); } };
+    lb.addEventListener('click', shut); document.addEventListener('keydown', esc, true);
+    document.body.appendChild(lb); lb.querySelector('button').focus();
+  }
+
+  // Three rooms, same furniture in the same places. The door always leads to the next one.
+  const ROOMS = [
+    { id: 'saigon', name: 'Sài Gòn', src: 'images/studio/room_vn.jpg', w: 2200, h: 1228, sun: [4, 22], cup: 'The tea',
+      alt: 'A mustard-yellow room in an old Vietnamese house at sunrise: green shutters open onto tiled rooftops and a flame tree, a desk with a laptop and blue-and-white tea set, a door glowing with light, a bookshelf, a pinboard of sticky notes and a rattan armchair beside a red silk lantern.',
+      hot: { window: [3, 4, 38, 58, 70, 45], laptop: [13.5, 69, 13, 15, 48, 30], cup: [27, 75, 9, 12, 50, 30], door: [50, 13, 8.5, 71, 60, 50], shelf: [65, 30, 15, 58, 50, 40], board: [84, 32, 16, 25, 40, 50], chair: [79.5, 69, 18, 31, 45, 35] } },
+    { id: 'sf', name: 'San Francisco', src: 'images/studio/room_sf.jpg', w: 2200, h: 1228, sun: [12, 8], cup: 'The coffee',
+      alt: 'A Victorian room in San Francisco at sunrise: a bay window over painted houses, cypress trees and fog with the Golden Gate Bridge peeking through, a desk with a laptop and a phin coffee filter, a door glowing with light, a tall bookshelf, a pinboard of sticky notes and maps, and an armchair with a knit throw.',
+      hot: { window: [2, 4, 39, 54, 60, 45], laptop: [22, 61, 10, 10, 50, 30], cup: [17, 64, 4.5, 8, 50, 30], door: [52, 29, 10, 52, 55, 50], shelf: [64.5, 14, 17.5, 75, 50, 40], board: [84.5, 26, 15.5, 34, 40, 50], chair: [81.5, 65, 18.5, 35, 40, 35] } },
+    { id: 'woods', name: 'the woods', src: 'images/studio/room.jpg', w: 1376, h: 768, sun: [1, 14], cup: 'The coffee',
+      alt: 'A wood-panelled writing studio at sunrise: a window over a forest, a desk with a laptop and coffee, an open door, a tall bookshelf, a pinboard of sticky notes and an armchair by a lamp.',
+      hot: { window: [3.5, 3, 30.5, 54, 62, 48], laptop: [22.6, 57.5, 16.4, 19.5, 48, 30], cup: [40, 56.5, 4.5, 13, 50, 30], door: [50.6, 16, 10.8, 61, 72, 52], shelf: [64, 0, 17.4, 88, 50, 44], board: [83.5, 17.5, 16, 36, 40, 50], chair: [80.8, 58, 19, 42, 40, 30] } }
+  ];
+  const LABEL = { window: ['Out the window', 'photos'], laptop: ['The laptop', 'projects'], shelf: ['The bookshelf', 'writing'], board: ['The pinboard', 'what I use'], chair: ['The reading chair', 'about me'] };
+  const TILT = { window: 1.5, laptop: -2, cup: 2, door: -1.5, shelf: -2, board: 2, chair: 1.8 };
+
+  const stage = document.getElementById('stage'), scene = document.getElementById('scene');
+  const img = document.getElementById('roomimg'), hots = document.getElementById('hots'), nextImg = document.getElementById('nextimg');
+  const panel = document.getElementById('panel');
+  const sections = [...panel.querySelectorAll('section[data-k]')];
+  const roomNav = document.getElementById('rooms');
+  const isPhone = () => innerWidth <= 700;
+  let base = { s: 1, x: 0, y: 0 }, current = null, lastFocus = null, ri = 0, busy = false;
+  const room = () => ROOMS[ri];
+
+  ROOMS.forEach(r => { const p = new Image(); p.src = r.src; });
+  ROOMS.forEach((r, i) => {
+    if (i) roomNav.insertAdjacentHTML('beforeend', '<span aria-hidden="true">·</span>');
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = r.name;
+    b.addEventListener('click', () => goRoom(i)); roomNav.appendChild(b);
+  });
+
+  function buildHots() {
+    const r = room(), next = ROOMS[(ri + 1) % ROOMS.length];
+    hots.innerHTML = '';
+    Object.entries(r.hot).forEach(([k, [x, y, w, h, sx, sy]]) => {
+      const [title, sub] = k === 'door' ? ['Through the door', next.name] : k === 'cup' ? [r.cup, 'work with me'] : LABEL[k];
+      const b = document.createElement('button');
+      b.className = 'hot'; b.dataset.k = k; b.type = 'button';
+      b.style.cssText = `left:${x}%;top:${y}%;width:${w}%;height:${h}%`;
+      b.setAttribute('aria-label', `${title}: ${sub}`);
+      b.innerHTML = `<i class="spark" style="left:${sx}%;top:${sy}%"></i><span class="note" style="--x:${sx}%;--y:${sy}%;--r:${TILT[k]}deg">${title} <em>· ${sub}</em></span>`;
+      b.addEventListener('click', e => { e.stopPropagation(); k === 'door' ? goRoom((ri + 1) % ROOMS.length, b) : open(k); });
+      hots.appendChild(b);
+    });
+    img.alt = r.alt;
+    document.getElementById('sun').style.cssText = `left:${r.sun[0]}%;top:${r.sun[1]}%`;
+    [...roomNav.querySelectorAll('button')].forEach((b, i) => b.setAttribute('aria-current', i === ri));
+  }
+
+  function layout() {
+    const r = room(), vw = stage.clientWidth, vh = stage.clientHeight;
+    if (isPhone()) {
+      const s = vh / r.h; base = { s, x: 0, y: 0 };
+      scene.style.width = r.w * s + 'px'; scene.style.height = vh + 'px';
+    } else {
+      const s = Math.max(vw / r.w, vh / r.h); base = { s, x: (vw - r.w * s) / 2, y: (vh - r.h * s) / 2 };
+      scene.style.width = r.w * s + 'px'; scene.style.height = r.h * s + 'px';
+    }
+    scene.style.left = base.x + 'px'; scene.style.top = base.y + 'px';
+    sizeMotes();
+    requestAnimationFrame(keepNotes);
+    if (current && !isPhone()) zoom(current, true);
+  }
+
+  function keepNotes() {
+    const lo = 12, hi = (isPhone() ? scene.offsetWidth : stage.clientWidth) - 12;
+    const off = isPhone() ? scene.getBoundingClientRect().left : 0;
+    scene.querySelectorAll('.note').forEach(n => {
+      n.style.setProperty('--dx', '0px');
+      const r = n.getBoundingClientRect(), L = r.left - off, R = r.right - off;
+      n.style.setProperty('--dx', (L < lo ? lo - L : R > hi ? hi - R : 0) + 'px');
+    });
+  }
+
+  function zoomTransform(el, z, free) {
+    const vw = stage.clientWidth, vh = stage.clientHeight;
+    const w = el.offsetWidth, h = el.offsetHeight, cx = el.offsetLeft + w / 2, cy = el.offsetTop + h / 2;
+    const sw = scene.offsetWidth * z, sh = scene.offsetHeight * z;
+    const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+    const tx = clamp(free / 2 - base.x - cx * z, vw - sw - base.x, -base.x);
+    const ty = clamp(vh / 2 - base.y - cy * z, vh - sh - base.y, -base.y);
+    return `translate(${tx}px, ${ty}px) scale(${z})`;
+  }
+  function zoom(k, instant) {
+    const el = hots.querySelector(`.hot[data-k="${k}"]`);
+    const vw = stage.clientWidth, vh = stage.clientHeight;
+    const free = vw - Math.min(panel.classList.contains('wide') ? 760 : 480, vw);
+    const z = Math.max(1.15, Math.min(2.2, Math.min(free * .7 / el.offsetWidth, vh * .72 / el.offsetHeight)));
+    scene.style.transition = instant ? 'none' : '';
+    scene.style.transform = zoomTransform(el, z, free);
+  }
+
+  function open(k) {
+    if (busy) return;
+    if (!current) lastFocus = document.activeElement;
+    current = k;
+    document.body.classList.remove('hinting');
+    sections.forEach(s => s.classList.toggle('on', s.dataset.k === k));
+    panel.classList.toggle('wide', k === 'window');
+    panel.scrollTop = 0;
+    document.body.classList.add('zoomed');
+    const el = hots.querySelector(`.hot[data-k="${k}"]`);
+    if (isPhone()) stage.scrollTo({ left: el.offsetLeft + el.offsetWidth / 2 - stage.clientWidth / 2, behavior: 'smooth' });
+    else zoom(k);
+    setTimeout(() => document.getElementById('close').focus({ preventScroll: true }), 450);
+  }
+  function close() {
+    if (!current) return;
+    current = null;
+    document.body.classList.remove('zoomed');
+    scene.style.transition = ''; scene.style.transform = 'none';
+    if (lastFocus && lastFocus.focus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+  }
+
+  // Rooms sit side by side: Sài Gòn | San Francisco | the woods. Moving right slides the view left, and back.
+  // The door always continues forward.
+  function goRoom(i, door) {
+    if (busy || i === ri) return;
+    busy = true; close();
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const dir = door ? 1 : (i > ri ? 1 : -1);
+    document.body.classList.add('travelling');
+    nextImg.style.left = dir * 100 + '%'; nextImg.style.opacity = '1';
+    nextImg.src = ROOMS[i].src;
+    const slide = () => requestAnimationFrame(() => {
+      scene.style.transition = reduce ? 'none' : 'transform 1s cubic-bezier(.65, 0, .35, 1)';
+      scene.style.transform = `translateX(${-dir * scene.offsetWidth}px)`;
+    });
+    (nextImg.decode ? nextImg.decode() : Promise.resolve()).then(slide, slide);
+    setTimeout(() => {
+      ri = i; img.src = room().src;
+      const settle = () => {
+        scene.style.transition = 'none'; scene.style.transform = 'none';
+        nextImg.style.opacity = '0'; nextImg.style.left = '0';
+        buildHots(); layout();
+        void scene.offsetWidth; scene.style.transition = '';
+        document.body.classList.remove('travelling');
+        busy = false;
+        const d = hots.querySelector('.hot[data-k="door"]'); if (door && d) d.focus({ preventScroll: true });
+      };
+      img.decode ? img.decode().then(settle, settle) : settle();
+    }, reduce ? 60 : 1100);
+  }
+
+  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => open(b.dataset.go)));
+  document.getElementById('close').addEventListener('click', close);
+  stage.addEventListener('click', e => { if (!e.target.closest('.hot')) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  addEventListener('resize', layout);
+  stage.addEventListener('scroll', () => document.body.classList.add('panned'), { passive: true });
+
+  document.getElementById('copy').addEventListener('click', e => {
+    const btn = e.currentTarget, code = document.getElementById('addr');
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => (btn.textContent = 'Copy'), 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(code); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; };
+    try { navigator.clipboard.writeText(code.textContent).then(done, fallback); } catch (err) { fallback(); }
+  });
+
+  // dust drifting in the window light
+  const cv = document.getElementById('motes'), ctx = cv.getContext('2d');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motes = Array.from({ length: 70 }, () => ({ u: Math.random(), v: Math.random(), r: .6 + Math.random() * 1.6, sp: .0004 + Math.random() * .0009, p: Math.random() * 6.28 }));
+  function sizeMotes() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.width = scene.offsetWidth * dpr; cv.height = scene.offsetHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function tick(t) {
+    const W = scene.offsetWidth, H = scene.offsetHeight, [x, y, w, h] = room().hot.window;
+    ctx.clearRect(0, 0, W, H);
+    motes.forEach(m => {
+      m.v -= m.sp; if (m.v < 0) { m.v = 1; m.u = Math.random(); }
+      const px = (x + w * .3 + w * 1.1 * m.u + Math.sin(t / 2400 + m.p) * 1.2) / 100 * W, py = (y + h * 1.15 * m.v) / 100 * H;
+      ctx.beginPath(); ctx.arc(px, py, m.r * W / 1400, 0, 6.28);
+      ctx.fillStyle = `rgba(255,236,200,${.5 * (.55 + .45 * Math.sin(t / 900 + m.p))})`; ctx.fill();
+    });
+    if (!still) requestAnimationFrame(tick);
+  }
+
+  buildHots();
+  layout();
+  if (isPhone()) stage.scrollLeft = (scene.offsetWidth - stage.clientWidth) * .42;
+  requestAnimationFrame(tick);
+  setTimeout(() => document.body.classList.add('awake'), 2600);
+})();
+</script>
 </body>
 </html>
