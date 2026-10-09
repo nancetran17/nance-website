@@ -132,8 +132,10 @@ a { color: inherit; }
 .prose ul, .prose ol { padding-left: 1.3em; }
 .prose li + li { margin-top: .45em; }
 .prose blockquote {
-  border-left: 3px solid var(--ember); padding: 2px 0 2px 20px; color: var(--ink-soft); font-style: italic;
+  border-left: 3px solid var(--ember); padding: 16px 20px; background: rgba(246, 234, 214, .7);
+  font-size: 1.08rem; border-radius: 0 3px 3px 0;
 }
+.prose blockquote > * + * { margin-top: .8em; }
 .prose blockquote.pull {
   border: 0; padding: 18px 22px; font-style: normal; color: var(--ink);
   background: var(--note-1); transform: rotate(-.6deg);
@@ -148,7 +150,7 @@ a { color: inherit; }
   text-align: center; margin-top: 10px;
 }
 .prose pre, .prose code { font-family: var(--f-mono); font-size: .85em; }
-.prose pre { background: var(--paper-deep); padding: 16px; border-radius: 3px; overflow-x: auto; }
+.prose pre { background: var(--paper-deep); padding: 16px; border-radius: 3px; white-space: pre-wrap; line-height: 1.6; }
 .prose table { width: 100%; border-collapse: collapse; font-family: var(--f-body); font-size: .95rem; }
 .prose th, .prose td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
 
@@ -166,3 +168,13 @@ a { color: inherit; }
   .topbar__links a { white-space: nowrap; }
   .topbar__links li:nth-child(2) { display: none; }
 }
+
+/* Posts without a cover get a sticky note instead. */
+.post__thumb--note {
+  display: grid; place-items: center;
+  background: var(--note-1); box-shadow: 0 8px 16px rgba(47, 36, 32, .12);
+  font-family: var(--f-display); font-size: 2.2rem; color: var(--ink);
+  transform: rotate(-2deg); border-radius: 1px;
+}
+.post:nth-child(3n) .post__thumb--note { background: var(--note-3); transform: rotate(1.5deg); }
+.post:nth-child(3n+1) .post__thumb--note { background: var(--note-2); }

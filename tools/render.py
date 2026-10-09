@@ -87,7 +87,7 @@ items = []
 for p in posts:
     ext = ' target="_blank" rel="noopener"' if href(p).startswith("http") else ""
     badge = '<span class="interactive">interactive</span>' if p.get("interactive") else ""
-    thumb = f'<img class="post__thumb" src="{e(p["cover"])}" alt="" loading="lazy">' if p.get("cover") else '<span class="post__thumb"></span>'
+    thumb = f'<img class="post__thumb" src="{e(p["cover"])}" alt="" loading="lazy">' if p.get("cover") else f'<span class="post__thumb post__thumb--note" aria-hidden="true">{e(p.get("note", ""))}</span>'
     items.append(f'''      <li class="post">
         <a class="post__link" href="{e(href(p))}"{ext}>
           <div>
