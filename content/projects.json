@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "plunging-price-of-thought",
+    "href": "/plunging-price-of-thought/",
+    "title": "The Plunging Price of Thought",
+    "subtitle": "Rabbit Hole #4 as an essay you walk through: one illustrated market town where every stall, tower and road is a piece of the argument.",
+    "short": "An essay you walk through as one illustrated market town.",
+    "date": "2026-10-05",
+    "tag": "Illustrated essay",
+    "cover": "images/writing/plunging-price-of-thought-cover.png"
+  },
+  {
+    "slug": "mosaic-manifesto",
+    "href": "/mosaic-manifesto/",
+    "title": "Perception Is All You Need",
+    "subtitle": "The Mosaic Intelligence Labs manifesto on why surgical autonomy has to start with perception, illustrated by me as one painted Tuscan valley where every paragraph has its own corner.",
+    "short": "One painted Tuscan valley where every paragraph has its own corner.",
+    "date": "2026-10-05",
+    "tag": "Illustrated manifesto",
+    "cover": "images/writing/mosaic-manifesto-cover.png"
+  },
+  {
+    "slug": "mosaic-story",
+    "href": "/mosaic-story/",
+    "title": "The Mosaic Story",
+    "subtitle": "Written by Ileana Pirozzi and illustrated by me as one painted Italian landscape about why perception comes first in surgery.",
+    "short": "Why perception comes first in surgery, told across an Italian landscape.",
+    "date": "2026-10-04",
+    "tag": "Illustrated story",
+    "cover": "images/writing/mosaic-story-cover.png"
+  }
+]
