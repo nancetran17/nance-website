@@ -178,3 +178,17 @@ a { color: inherit; }
 }
 .post:nth-child(3n) .post__thumb--note { background: var(--note-3); transform: rotate(1.5deg); }
 .post:nth-child(3n+1) .post__thumb--note { background: var(--note-2); }
+
+/* --- Work with me --- */
+.work h2 { font-family: var(--f-mono); font-size: .75rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin: 48px 0 8px; }
+.offer { list-style: none; border-top: 1px solid var(--line); }
+.offer li { padding: 14px 0; border-bottom: 1px solid var(--line); font-family: var(--f-display); font-size: 1.3rem; }
+.steps { list-style: none; display: grid; gap: 16px; counter-reset: s; margin-top: 16px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 10px; font-size: 1.05rem; }
+.steps li::before { content: counter(s); font: italic 300 1.8rem/1 var(--f-display); color: var(--ember); }
+.mail { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 16px; padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+.mail code { font: 400 15px var(--f-mono); user-select: all; word-break: break-all; }
+.mail button { margin-left: auto; font: 600 13px var(--f-body); border: 0; border-radius: 999px; padding: 8px 15px; background: var(--ink); color: var(--paper); cursor: pointer; }
+.mail button:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
+.work .links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px; font-weight: 500; }
+.work .links a { color: var(--ember); }

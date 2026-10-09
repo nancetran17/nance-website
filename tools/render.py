@@ -22,7 +22,7 @@ TOPBAR = '''<header class="topbar">
       <ul class="topbar__links">
         <li><a href="writing.html"{cur}>Writing</a></li>
         <li><a href="projects.html"{pcur}>Projects</a></li>
-        <li><a href="/#work">Work with me</a></li>
+        <li><a href="work-with-me.html"{wcur}>Work with me</a></li>
         <li><a class="sub" href="https://overthinkerdiary.substack.com/subscribe" target="_blank" rel="noopener">Subscribe</a></li>
       </ul>
     </div>
@@ -63,7 +63,7 @@ for p in posts:
   {FONTS}
 </head>
 <body class="paper">
-  {TOPBAR.format(cur="", pcur="")}
+  {TOPBAR.format(cur="", pcur="", wcur="")}
 
   <article class="essay">
     <a href="writing.html" class="essay__tag">{e(p["tag"])}</a>
@@ -110,7 +110,7 @@ def archive(entries, title, eyebrow, lede, description, writing):
   {FONTS}
 </head>
 <body class="paper">
-  {TOPBAR.format(cur=cur if writing else "", pcur="" if writing else cur)}
+  {TOPBAR.format(cur=cur if writing else "", pcur="" if writing else cur, wcur="")}
 
   <main class="archive">
     <p class="archive__eyebrow">{eyebrow}</p>
@@ -130,6 +130,58 @@ def archive(entries, title, eyebrow, lede, description, writing):
     posts, "Writing", "from the bookshelf",
     'I write to think, mostly about technology, civilization and why I\'m hopeful about where we\'re headed. Everything here also goes out on my <a href="https://overthinkerdiary.substack.com" target="_blank" rel="noopener">Substack</a>.',
     "Essays by Nancy Tran on technology, civilization and where we're headed, also published on Substack.", True))
+
+(repo / "work-with-me.html").write_text(f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work with me | Nancy Tran</title>
+  <meta name="description" content="Writing, strategy and research help from Nancy Tran.">
+  {FONTS}
+</head>
+<body class="paper">
+  {TOPBAR.format(cur="", pcur="", wcur=' aria-current="page"')}
+
+  <main class="archive work">
+    <p class="archive__eyebrow">over coffee</p>
+    <h1 class="archive__title">Work with me</h1>
+    <p class="archive__lede">I help people think clearer, write better, and build things that matter.</p>
+
+    <h2>What I can help with</h2>
+    <ul class="offer">
+      <li>Writing &amp; content strategy</li>
+      <li>Strategic thinking sessions</li>
+      <li>Product &amp; idea consulting</li>
+      <li>Personal brand building</li>
+      <li>Newsletter launch &amp; growth</li>
+      <li>Research deep dives</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span><b>Say hello.</b> Email me what you're working on.</span></li>
+      <li><span><b>Discovery call.</b> A free 20 minutes to see if we fit.</span></li>
+      <li><span><b>Let's build.</b> Drafts and updates the whole way through.</span></li>
+    </ol>
+
+    <h2>Say hello</h2>
+    <div class="mail"><code id="addr">tuong.tran0117@gmail.com</code><button type="button" id="copy">Copy</button></div>
+    <div class="links"><a href="https://substack.com/@overthinkernance" target="_blank" rel="noopener">Substack</a><a href="https://github.com/nancetran17" target="_blank" rel="noopener">GitHub</a></div>
+  </main>
+
+  {FOOT}
+  <script>
+    document.getElementById('copy').addEventListener('click', e => {{
+      const btn = e.currentTarget, code = document.getElementById('addr');
+      const done = () => {{ btn.textContent = 'Copied'; setTimeout(() => (btn.textContent = 'Copy'), 1600); }};
+      const fallback = () => {{ const r = document.createRange(); r.selectNodeContents(code); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; }};
+      try {{ navigator.clipboard.writeText(code.textContent).then(done, fallback); }} catch (err) {{ fallback(); }}
+    }});
+  </script>
+</body>
+</html>
+''')
 
 projects = json.loads((repo / "content" / "projects.json").read_text())
 (repo / "projects.html").write_text(archive(
