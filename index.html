@@ -499,6 +499,11 @@ body.panned .pan, body.zoomed .pan { opacity: 0; }
 
   document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => open(b.dataset.go)));
   document.getElementById('close').addEventListener('click', close);
+  // Other pages link straight to a panel, e.g. /#projects opens the laptop.
+  const HASH = { writing: 'shelf', projects: 'laptop', photos: 'window', uses: 'board', about: 'chair', work: 'cup' };
+  const fromHash = () => { const k = HASH[location.hash.slice(1)]; if (k) open(k); };
+  addEventListener('hashchange', fromHash);
+  if (document.readyState === 'complete') fromHash(); else addEventListener('load', fromHash);
   stage.addEventListener('click', e => { if (!e.target.closest('.hot')) close(); });
   addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   addEventListener('resize', layout);
