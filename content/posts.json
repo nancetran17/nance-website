@@ -11,26 +11,6 @@
     "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-4-leveraging-the-plunging"
   },
   {
-    "slug": "mosaic-manifesto",
-    "href": "mosaic-manifesto",
-    "interactive": true,
-    "title": "Perception Is All You Need",
-    "subtitle": "The Mosaic Intelligence Labs manifesto on why surgical autonomy has to start with perception, illustrated by me as one painted Tuscan valley where every paragraph has its own corner.",
-    "date": "2026-10-05",
-    "tag": "Physical AI",
-    "cover": "images/writing/mosaic-manifesto-cover.png"
-  },
-  {
-    "slug": "mosaic-story",
-    "href": "mosaic-story",
-    "interactive": true,
-    "title": "The Mosaic Story",
-    "subtitle": "Surgery spent 150 years becoming less invasive, and now surgeons steer a catheter through the body by a grey shadow. Written by Ileana Pirozzi and illustrated by me as one painted Italian landscape about why perception comes first.",
-    "date": "2026-10-04",
-    "tag": "Physical AI",
-    "cover": "images/writing/mosaic-story-cover.png"
-  },
-  {
     "slug": "the-generational-company-playbook",
     "body": "essays/the-generational-company-playbook.html",
     "title": "The Generational Company Playbook, Part I: Problems that Move Civilizations for Generations",
@@ -64,31 +44,34 @@
   {
     "slug": "rabbit-hole-3-how-do-you-license-an-ai-doctor",
     "body": "essays/rabbit-hole-3-how-do-you-license-an-ai-doctor.html",
-    "title": "Rabbit Hole 3: How Do You License an AI Doctor?",
+    "title": "Rabbit Hole #3: How Do You License an AI Doctor?",
     "subtitle": "You don't license an AI doctor. You give a specific AI system permission to perform a specific clinical task.",
     "date": "2026-08-31",
     "tag": "Rabbit Hole",
-    "note": "#3",
-    "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-3-how-do-you-license"
+    "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-3-how-do-you-license",
+    "cover": "images/writing/rabbit-hole-3-cover.jpg",
+    "cover_alt": "Abstract watercolor swirls in grey, teal and indigo"
   },
   {
     "slug": "rabbit-hole-2-the-story-of-pokemon-go",
     "body": "essays/rabbit-hole-2-the-story-of-pokemon-go.html",
     "title": "Rabbit Hole #2: The Story of Pokémon Go",
-    "subtitle": "How a game that got millions of us walking ended up mapping the world for robots, and what it says about the data bottleneck in physical AI.",
+    "subtitle": "The future of AI data collection is hidden in consumer apps",
     "date": "2026-03-24",
     "tag": "Rabbit Hole",
-    "note": "#2",
-    "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-2-the-story-of-pokemon"
+    "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-2-the-story-of-pokemon",
+    "cover": "images/writing/rabbit-hole-2-cover.jpg",
+    "cover_alt": "An illustrated crowd playing Pokémon Go in front of world landmarks"
   },
   {
     "slug": "rabbit-hole-1-the-story-of-social-networks",
     "body": "essays/rabbit-hole-1-the-story-of-social-networks.html",
     "title": "Rabbit Hole #1: The Story of Social Network",
-    "subtitle": "From Rome's couriers and London's penny coffeehouses to a social network only AI agents can post on: 2,000 years of how we connect, and what each medium says about us.",
+    "subtitle": "The Social Network That Forgot to Invite Us",
     "date": "2026-03-15",
     "tag": "Rabbit Hole",
-    "note": "#1",
-    "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-1-the-story-of-social"
+    "substack": "https://overthinkerdiary.substack.com/p/rabbit-hole-1-the-story-of-social",
+    "cover": "images/writing/rabbit-hole-1-cover.jpg",
+    "cover_alt": "Looking up through the twisting branches of a pine tree"
   }
 ]
